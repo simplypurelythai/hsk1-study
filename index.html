@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 1 — ครบ 500 คำ · เตรียมสอบ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c0392b;--red-lt:#fef2f2;--red-md:#fecaca;
+  --blue:#1d4ed8;--blue-lt:#eff6ff;
+  --green:#15803d;--green-lt:#f0fdf4;
+  --amber:#b45309;--amber-lt:#fffbeb;
+  --ink:#111827;--sub:#6b7280;--muted:#9ca3af;
+  --border:#e5e7eb;--bg:#f9fafb;--white:#fff;
+  --lc:#c0392b;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+  --shm:0 4px 16px rgba(0,0,0,.08);
+  --shl:0 10px 40px rgba(0,0,0,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;font-size:15px;}
+/* ─── HEADER ─── */
+header{background:var(--white);border-bottom:1px solid var(--border);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:200;box-shadow:var(--sh);}
+.logo{font-family:'Noto Serif SC',serif;font-size:18px;color:var(--red);font-weight:700;display:flex;align-items:center;gap:8px;}
+.logo-badge{background:var(--red-lt);color:var(--red);border:1px solid var(--red-md);font-size:10px;font-family:'Sarabun';font-weight:700;padding:2px 8px;border-radius:6px;letter-spacing:.3px;}
+.nav{display:flex;gap:2px;}
+.nb{background:none;border:none;color:var(--sub);padding:6px 11px;border-radius:7px;cursor:pointer;font-family:'Sarabun';font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
+.nb:hover{background:var(--bg);color:var(--ink);}
+.nb.on{background:var(--red-lt);color:var(--red);font-weight:600;}
+.xp-pill{background:var(--amber-lt);border:1px solid #fde68a;color:var(--amber);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;}
+.prog-wrap{height:3px;background:var(--border);}
+.prog-bar{height:3px;background:var(--red);transition:width .6s;}
+/* ─── PAGES ─── */
+.page{display:none;max-width:980px;margin:0 auto;padding:22px 16px;}
+.page.on{display:block;}
+/* ─── HOME ─── */
+.hero{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:18px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:var(--sh);overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--red-lt),transparent 70%);pointer-events:none;}
+.hero-char{font-family:'Noto Serif SC',serif;font-size:72px;color:var(--red);line-height:1;animation:hfloat 3s ease-in-out infinite;}
+@keyframes hfloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.hero h1{font-size:20px;font-weight:700;margin-bottom:5px;}
+.hero p{color:var(--sub);font-size:13px;line-height:1.7;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+.sc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--sh);}
+.sc .sn{font-size:26px;font-weight:700;color:var(--red);font-family:'Noto Serif SC';}
+.sc .sl{font-size:11px;color:var(--muted);margin-top:2px;}
+.sec{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:20px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec::before{content:'';width:3px;height:12px;background:var(--red);border-radius:2px;display:block;}
+.action-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.acard{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;transition:all .15s;}
+.acard:hover{border-color:var(--red);box-shadow:var(--shm);transform:translateY(-1px);}
+.acard .ai{font-size:22px;margin-bottom:4px;}
+.acard .an{font-size:12px;font-weight:600;}
+.acard .as{font-size:10px;color:var(--muted);margin-top:2px;}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;}
+.ccat{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px;}
+.ccat:hover{border-color:var(--red);transform:translateY(-1px);}
+.ccat .cic{font-size:20px;}
+.ccat .cname{font-size:12px;font-weight:600;}
+.ccat .cnt{font-size:10px;color:var(--muted);}
+.tip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.tip{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--sh);}
+.tip .ti{font-size:20px;margin-bottom:4px;}
+.tip .tt{font-size:13px;font-weight:700;margin-bottom:3px;}
+.tip .tb{font-size:11px;color:var(--sub);line-height:1.7;}
+/* ─── STUDY ─── */
+.study-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+.back-btn{background:var(--white);border:1px solid var(--border);color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer;font-family:'Sarabun';font-size:13px;transition:all .15s;}
+.back-btn:hover{border-color:var(--sub);}
+.mode-tabs{display:flex;border-bottom:1px solid var(--border);}
+.mtab{padding:9px 16px;border:none;background:none;cursor:pointer;font-family:'Sarabun';font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;}
+.mtab:hover{color:var(--ink);}
+.mtab.on{color:var(--red);border-bottom-color:var(--red);font-weight:700;}
+/* ─── VOCAB ─── */
+.vctrl{display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap;align-items:center;}
+.vsearch{flex:1;min-width:160px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:'Sarabun';font-size:14px;outline:none;background:var(--white);transition:border-color .15s;}
+.vsearch:focus{border-color:var(--red);}
+.vfbtn{padding:7px 11px;border:1.5px solid var(--border);border-radius:8px;background:var(--white);cursor:pointer;font-family:'Sarabun';font-size:11px;color:var(--sub);transition:all .15s;}
+.vfbtn:hover{border-color:var(--sub);color:var(--ink);}
+.vfbtn.on{background:var(--red);color:#fff;border-color:var(--red);}
+.vcount{font-size:12px;color:var(--muted);margin-bottom:8px;}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;}
+.vc{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:13px;cursor:pointer;position:relative;transition:all .15s;border-left:3px solid transparent;}
+.vc:hover{border-color:var(--red);box-shadow:var(--shm);transform:translateY(-1px);}
+.vc.lnd{border-left-color:var(--green);}
+.vc .vh{font-family:'Noto Serif SC',serif;font-size:28px;color:var(--red);line-height:1.2;margin-bottom:3px;}
+.vc .vp{font-size:11px;color:var(--blue);margin-bottom:2px;}
+.vc .vm{font-size:12px;color:var(--ink);}
+.vc .vtag{font-size:10px;background:var(--bg);color:var(--muted);padding:1px 6px;border-radius:20px;display:inline-block;margin-top:4px;}
+.vc .vspk{position:absolute;bottom:7px;right:7px;font-size:14px;opacity:0;cursor:pointer;background:none;border:none;transition:opacity .15s;color:var(--red);}
+.vc:hover .vspk{opacity:.65;}
+.ldot{position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--green);}
+.srs-b{display:inline-flex;align-items:center;font-size:9px;padding:1px 5px;border-radius:4px;margin-left:3px;font-weight:600;vertical-align:middle;}
+.srs-new{background:#dbeafe;color:#1d4ed8;}
+.srs-due{background:#fef3c7;color:#b45309;}
+.srs-ok{background:#dcfce7;color:#15803d;}
+/* ─── FLASHCARD ─── */
+.fc-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0;}
+.fc-meta-row{font-size:12px;color:var(--muted);margin-bottom:12px;display:flex;gap:14px;}
+.flashcard{width:340px;height:230px;perspective:1000px;cursor:pointer;margin-bottom:18px;}
+.fc-inner{width:100%;height:100%;transform-style:preserve-3d;transition:transform .52s cubic-bezier(.4,0,.2,1);position:relative;}
+.flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+.fc-f,.fc-b{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shl);}
+.fc-f{background:var(--red);}
+.fc-f .fhz{font-family:'Noto Serif SC',serif;font-size:74px;color:#fff;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.15);}
+.fc-f .fspk{font-size:18px;color:rgba(255,255,255,.75);cursor:pointer;background:none;border:none;margin-top:5px;transition:color .15s;}
+.fc-f .fspk:hover{color:#fff;}
+.fc-f .fhint{font-size:10px;color:rgba(255,255,255,.5);margin-top:3px;}
+.fc-b{background:var(--white);border:1.5px solid var(--border);transform:rotateY(180deg);padding:16px;text-align:center;overflow:hidden;}
+.fc-b .fbs{font-family:'Noto Serif SC';font-size:26px;color:var(--red);}
+.fc-b .fbp{font-size:15px;color:var(--blue);margin:5px 0 3px;}
+.fc-b .fbm{font-size:18px;font-weight:700;}
+.fc-b .fbc{font-size:11px;color:var(--muted);margin-top:3px;}
+/* Example sentence with pinyin on card */
+.fc-ex-wrap{margin-top:8px;background:var(--bg);border-radius:8px;padding:7px 10px;width:100%;text-align:left;}
+.fc-ex-cn{font-family:'Noto Serif SC';font-size:13px;color:var(--ink);margin-bottom:2px;}
+.fc-ex-pin{font-size:10px;color:var(--blue);margin-bottom:2px;letter-spacing:.3px;}
+.fc-ex-th{font-size:11px;color:var(--sub);}
+.srs-btns{display:flex;gap:7px;margin-top:2px;}
+.sb{padding:9px 18px;border:none;border-radius:9px;font-family:'Sarabun';font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
+.sb.hard{background:var(--red-lt);color:var(--red);border:1.5px solid var(--red-md);}
+.sb.ok{background:var(--amber-lt);color:var(--amber);border:1.5px solid #fde68a;}
+.sb.easy{background:var(--green-lt);color:var(--green);border:1.5px solid #bbf7d0;}
+.sb:hover{filter:brightness(.95);transform:translateY(-1px);}
+/* ─── SRS ─── */
+.srs-outer{display:flex;flex-direction:column;align-items:center;padding:8px 0;}
+/* ─── QUIZ ─── */
+.qhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.qscore-txt{font-size:13px;font-weight:700;color:var(--red);}
+.qprog{height:4px;background:var(--border);border-radius:2px;margin-bottom:14px;overflow:hidden;}
+.qprogf{height:4px;background:var(--red);border-radius:2px;transition:width .3s;}
+.qbox{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:24px;text-align:center;box-shadow:var(--sh);margin-bottom:12px;}
+.qbig{font-family:'Noto Serif SC',serif;font-size:64px;color:var(--red);line-height:1;}
+.qlabel{font-size:11px;color:var(--muted);margin-bottom:6px;}
+.qspk{font-size:20px;cursor:pointer;background:none;border:none;color:var(--muted);display:block;margin:5px auto 0;transition:color .15s;}
+.qspk:hover{color:var(--red);}
+/* Quiz types */
+.quiz-type-sel{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap;}
+.qtype-btn{padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;background:var(--white);cursor:pointer;font-family:'Sarabun';font-size:12px;font-weight:500;color:var(--sub);transition:all .15s;}
+.qtype-btn.on{background:var(--red-lt);color:var(--red);border-color:var(--red);}
+.qtype-btn:hover{border-color:var(--red);color:var(--red);}
+.qchoices{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.qch{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:13px;font-size:13px;font-family:'Sarabun';cursor:pointer;font-weight:500;transition:all .15s;text-align:left;}
+.qch:hover:not(:disabled){border-color:var(--red);background:var(--red-lt);}
+.qch.ok{background:var(--green-lt);border-color:var(--green);color:var(--green);}
+.qch.ng{background:var(--red-lt);border-color:var(--red);color:var(--red);}
+/* FILL IN */
+.fill-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:9px;font-family:'Sarabun';font-size:16px;outline:none;margin-top:10px;transition:border-color .15s;}
+.fill-input:focus{border-color:var(--red);}
+.fill-submit{background:var(--red);color:#fff;border:none;padding:10px 24px;border-radius:9px;font-family:'Sarabun';font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;display:block;transition:background .15s;}
+.fill-submit:hover{background:#b91c1c;}
+/* ─── EXAM ─── */
+.exam-wrap{max-width:680px;margin:0 auto;}
+.exam-hdr{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--sh);}
+.exam-title{font-size:15px;font-weight:700;}
+.exam-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.exam-timer{font-size:24px;font-weight:700;color:var(--red);font-family:'Noto Serif SC';}
+.exam-timer.warn{color:#dc2626;animation:blink .8s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
+.exam-sec{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px;margin-bottom:10px;box-shadow:var(--sh);}
+.exam-sec-title{font-size:12px;font-weight:700;margin-bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:6px;}
+.exam-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--border);}
+.exam-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.eq-num{font-size:11px;color:var(--muted);margin-bottom:5px;}
+.eq-hz{font-family:'Noto Serif SC';font-size:32px;color:var(--red);margin-bottom:4px;line-height:1.2;}
+/* Example pinyin in exam */
+.eq-ex-block{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 12px;margin-bottom:8px;}
+.eq-ex-cn{font-family:'Noto Serif SC';font-size:14px;margin-bottom:2px;}
+.eq-ex-pin{font-size:10px;color:var(--blue);margin-bottom:2px;letter-spacing:.3px;}
+.eq-audio{background:var(--blue-lt);border:1px solid #bfdbfe;border-radius:7px;padding:6px 12px;font-size:12px;cursor:pointer;color:var(--blue);display:inline-flex;align-items:center;gap:5px;margin-bottom:8px;font-family:'Sarabun';font-weight:600;transition:all .15s;}
+.eq-audio:hover{background:#dbeafe;}
+.exam-opts{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.exam-opt{background:var(--bg);border:1.5px solid var(--border);border-radius:7px;padding:9px;font-family:'Sarabun';font-size:12px;cursor:pointer;transition:all .15s;text-align:left;font-weight:500;}
+.exam-opt:hover{border-color:var(--red);}
+.exam-opt.sel{border-color:var(--red);background:var(--red-lt);color:var(--red);font-weight:600;}
+.exam-opt.cor{border-color:var(--green);background:var(--green-lt);color:var(--green);}
+.exam-opt.wro{border-color:var(--red);background:var(--red-lt);color:var(--red);}
+.submit-exam{background:var(--red);color:#fff;border:none;padding:12px 32px;border-radius:10px;font-family:'Sarabun';font-size:14px;font-weight:700;cursor:pointer;display:block;margin:20px auto 0;transition:background .15s;}
+.submit-exam:hover{background:#b91c1c;}
+/* ─── RESULT ─── */
+.result-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:36px 20px;text-align:center;box-shadow:var(--shl);}
+.res-score{font-family:'Noto Serif SC';font-size:68px;font-weight:700;color:var(--red);line-height:1;}
+.res-grade{font-size:28px;margin:6px 0;}
+.res-msg{font-size:17px;font-weight:700;margin-bottom:5px;}
+.res-sub{color:var(--sub);font-size:13px;margin-bottom:20px;}
+.res-bd{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px;}
+.rb-item{background:var(--bg);border-radius:9px;padding:10px;text-align:center;}
+.rb-n{font-size:18px;font-weight:700;color:var(--red);}
+.rb-l{font-size:10px;color:var(--muted);margin-top:2px;}
+.rbtn{background:var(--red);color:#fff;border:none;padding:10px 24px;border-radius:9px;font-family:'Sarabun';font-size:13px;font-weight:700;cursor:pointer;margin:3px;transition:background .15s;}
+.rbtn:hover{background:#b91c1c;}
+.rbtn.sec{background:var(--bg);color:var(--ink);border:1.5px solid var(--border);}
+.rbtn.sec:hover{border-color:var(--sub);}
+/* Review list */
+.review-list{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-top:12px;}
+.review-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.review-item:last-child{border-bottom:none;}
+.review-item .ri-hz{font-family:'Noto Serif SC';font-size:20px;color:var(--red);min-width:32px;}
+.review-item .ri-pin{color:var(--blue);font-size:11px;}
+.review-item .ri-mng{color:var(--ink);}
+.review-item .ri-user{color:var(--muted);font-size:11px;margin-left:auto;}
+/* ─── MODAL ─── */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.modal-ov.on{display:flex;}
+.modal{background:var(--white);border-radius:18px;padding:24px;max-width:360px;width:90%;text-align:center;position:relative;box-shadow:var(--shl);animation:mpop .2s cubic-bezier(.4,0,.2,1);}
+@keyframes mpop{from{transform:scale(.88);opacity:0;}to{transform:scale(1);opacity:1;}}
+.mcls{position:absolute;top:10px;right:12px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--muted);}
+.mhrow{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:2px;}
+.mhz{font-family:'Noto Serif SC',serif;font-size:72px;color:var(--red);line-height:1;cursor:pointer;}
+.mspk{font-size:22px;cursor:pointer;background:none;border:none;color:var(--muted);transition:color .15s;}
+.mspk:hover{color:var(--red);}
+.mpin{font-size:18px;color:var(--blue);margin:6px 0 4px;}
+.mmng{font-size:20px;font-weight:700;margin-bottom:3px;}
+.mcat{font-size:11px;color:var(--muted);margin-bottom:10px;}
+/* Modal example with pinyin */
+.modal-ex-block{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px;text-align:left;margin-bottom:10px;}
+.modal-ex-cn{font-family:'Noto Serif SC';font-size:15px;margin-bottom:3px;}
+.modal-ex-pin{font-size:11px;color:var(--blue);margin-bottom:3px;letter-spacing:.3px;}
+.modal-ex-th{font-size:12px;color:var(--sub);}
+.msrs-row{display:flex;gap:6px;justify-content:center;margin-bottom:8px;flex-wrap:wrap;}
+.msrs-stat{font-size:10px;background:var(--bg);padding:2px 8px;border-radius:5px;color:var(--sub);border:1px solid var(--border);}
+.mlbtn{border:none;padding:8px 18px;border-radius:8px;font-family:'Sarabun';font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;}
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--ink);color:#fff;padding:8px 18px;border-radius:9px;font-size:12px;font-weight:500;z-index:999;opacity:0;transition:all .28s;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.spkanim{animation:spk .35s ease-in-out infinite alternate!important;}
+@keyframes spk{from{transform:scale(1);}to{transform:scale(1.25);}}
+@media(max-width:640px){
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .action-grid{grid-template-columns:repeat(3,1fr);}
+  .tip-grid{grid-template-columns:1fr;}
+  header{padding:0 12px;}
+  .nb{padding:5px 7px;font-size:11px;}
+  .xp-pill{display:none;}
+  .qchoices,.exam-opts{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modalOv" onclick="closeMod(event)">
+  <div class="modal">
+    <button class="mcls" onclick="closeModD()">✕</button>
+    <div class="mhrow">
+      <div class="mhz" id="mHz" onclick="speakM()"></div>
+      <button class="mspk spkbtn" id="mSpk" onclick="speakM()">🔊</button>
+    </div>
+    <div class="mpin" id="mPin"></div>
+    <div class="mmng" id="mMng"></div>
+    <div class="mcat" id="mCat"></div>
+    <div class="msrs-row" id="mSrsRow"></div>
+    <div class="modal-ex-block" id="mEx"></div>
+    <button class="mlbtn" id="mLBtn" onclick="togLearn()"></button>
+  </div>
+</div>
+
+<header>
+  <div class="logo">汉语 <span class="logo-badge">HSK 1 · 500 คำ</span></div>
+  <div class="nav">
+    <button class="nb on" onclick="goHome()">🏠 หน้าหลัก</button>
+    <button class="nb" id="nStudy" onclick="gotoStudy()" style="display:none">📚 เรียน</button>
+    <button class="nb" onclick="goHome();setTimeout(()=>document.getElementById('tipAnchor').scrollIntoView({behavior:'smooth'}),200)">💡 เคล็ดลับ</button>
+  </div>
+  <div class="xp-pill">⭐ <span id="xpDisp">0</span> XP</div>
+</header>
+<div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0"></div></div>
+
+<!-- ════ HOME ════ -->
+<div class="page on" id="pg-home">
+  <div class="hero">
+    <div>
+      <h1>HSK 1 — ครบ 500 คำ<br>เตรียมสอบได้เลย</h1>
+      <p>คำศัพท์ครบ 500 คำตามมาตรฐาน HSK 3.0 · ระบบ SRS จำฉลาด<br>ประโยคตัวอย่างพร้อมพินอิน · Mock Exam จำลองสอบจริง · เสียงทุกคำ</p>
+    </div>
+    <div class="hero-char" id="heroChar">汉</div>
+  </div>
+  <div class="stats">
+    <div class="sc"><div class="sn">500</div><div class="sl">คำทั้งหมด</div></div>
+    <div class="sc"><div class="sn" id="stLnd">0</div><div class="sl">เรียนแล้ว</div></div>
+    <div class="sc"><div class="sn" id="stStreak">0🔥</div><div class="sl">วันต่อเนื่อง</div></div>
+    <div class="sc"><div class="sn" id="stXP">0</div><div class="sl">XP สะสม</div></div>
+  </div>
+  <div class="sec">เริ่มฝึกทันที</div>
+  <div class="action-grid">
+    <div class="acard" onclick="os('srs')"><div class="ai">🧠</div><div class="an">SRS ทบทวน</div><div class="as">ระบบจำฉลาด</div></div>
+    <div class="acard" onclick="os('vocab')"><div class="ai">📚</div><div class="an">คำศัพท์</div><div class="as">500 คำ ครบ</div></div>
+    <div class="acard" onclick="os('flash')"><div class="ai">🃏</div><div class="an">Flashcard</div><div class="as">+ พินอินประโยค</div></div>
+    <div class="acard" onclick="os('quiz')"><div class="ai">✍️</div><div class="an">Quiz</div><div class="as">3 รูปแบบ</div></div>
+    <div class="acard" onclick="os('exam')"><div class="ai">📝</div><div class="an">Mock Exam</div><div class="as">จำลองสอบจริง</div></div>
+  </div>
+  <div class="sec">หมวดหมู่คำศัพท์</div>
+  <div class="cat-grid" id="catGrid"></div>
+  <div class="sec" id="tipAnchor">เคล็ดลับสอบผ่าน HSK 1</div>
+  <div class="tip-grid">
+    <div class="tip"><div class="ti">🧠</div><div class="tt">SRS — ระบบจำฉลาด</div><div class="tb">ทบทวนคำที่กำลังจะลืมในช่วงเวลาพอดี กด "ยาก" = เห็นเร็วขึ้น, "ง่าย" = เห็นช้าลง ได้ผลดีกว่าท่องซ้ำแบบธรรมดา 2–4 เท่า</div></div>
+    <div class="tip"><div class="ti">👂</div><div class="tt">ฟัง + พินอิน ทุกคำ</div><div class="tb">กด 🔊 ทุกครั้ง HSK 1 มีส่วนฟัง 20 ข้อ ต้องจำเสียงพร้อมความหมาย อ่านพินอินในประโยคตัวอย่างเพื่อฝึกออกเสียงด้วย</div></div>
+    <div class="tip"><div class="ti">📝</div><div class="tt">โครงสร้างข้อสอบ</div><div class="tb">HSK 1: ฟัง 20 ข้อ + อ่าน 20 ข้อ ใช้เวลา 40 นาที คะแนนผ่าน 120/300 ฝึก Mock Exam ทุก 2–3 วัน อย่าให้ข้อยากเสียเวลา</div></div>
+  </div>
+</div>
+
+<!-- ════ STUDY ════ -->
+<div class="page" id="pg-study">
+  <div class="study-top">
+    <button class="back-btn" onclick="goHome()">← กลับ</button>
+    <div style="font-size:13px;font-weight:700;color:var(--red)">HSK 1</div>
+    <div style="font-size:12px;color:var(--muted)" id="studyInfo">500 คำ</div>
+  </div>
+  <div class="mode-tabs">
+    <button class="mtab on" onclick="sm('srs')">🧠 SRS</button>
+    <button class="mtab" onclick="sm('vocab')">📚 คำศัพท์</button>
+    <button class="mtab" onclick="sm('flash')">🃏 Flashcard</button>
+    <button class="mtab" onclick="sm('quiz')">✍️ Quiz</button>
+    <button class="mtab" onclick="sm('exam')">📝 Mock Exam</button>
+  </div>
+  <div id="modeSRS"><div class="srs-outer" id="srsWrap"></div></div>
+  <div id="modeVocab" style="display:none">
+    <div class="vctrl">
+      <input class="vsearch" id="vs" placeholder="ค้นหา ตัวอักษร / พินอิน / ความหมาย…" oninput="rv()">
+      <button class="vfbtn on" id="fAll" onclick="svf('all',this)">ทั้งหมด</button>
+      <button class="vfbtn" id="fLnd" onclick="svf('lnd',this)">เรียนแล้ว</button>
+      <button class="vfbtn" id="fNew" onclick="svf('new',this)">ยังไม่เรียน</button>
+      <button class="vfbtn" id="fDue" onclick="svf('due',this)">ต้องทบทวน</button>
+    </div>
+    <div class="vcount" id="vcount"></div>
+    <div class="vgrid" id="vgrid"></div>
+  </div>
+  <div id="modeFlash" style="display:none">
+    <div class="fc-wrap">
+      <div class="fc-meta-row"><span id="fcMeta">— / —</span><span id="fcDue" style="color:var(--amber)"></span></div>
+      <div class="flashcard" id="flashcard" onclick="flipFC()">
+        <div class="fc-inner">
+          <div class="fc-f">
+            <div class="fhz" id="fcHz">—</div>
+            <button class="fspk" onclick="event.stopPropagation();speakFC()">🔊</button>
+            <div class="fhint">กด 🔊 ฟัง · แตะดูความหมาย + พินอินประโยค</div>
+          </div>
+          <div class="fc-b">
+            <div class="fbs" id="fcHzB">—</div>
+            <div class="fbp" id="fcPin">—</div>
+            <div class="fbm" id="fcMean">—</div>
+            <div class="fbc" id="fcCat">—</div>
+            <div class="fc-ex-wrap" id="fcEx"></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:7px;text-align:center">ประเมินหลังดูคำตอบ:</div>
+      <div class="srs-btns">
+        <button class="sb hard" onclick="rateFC(1)">😰 ยาก</button>
+        <button class="sb ok" onclick="rateFC(3)">😊 พอได้</button>
+        <button class="sb easy" onclick="rateFC(5)">😄 ง่าย</button>
+      </div>
+    </div>
+  </div>
+  <div id="modeQuiz" style="display:none"><div id="quizArea"></div></div>
+  <div id="modeExam" style="display:none"><div id="examArea"></div></div>
+</div>
+
+<script>
+/* ══ TTS ══ */
+let ttsV=null;
+function ldV(){const vv=window.speechSynthesis?.getVoices()||[];ttsV=vv.find(v=>v.lang==='zh-CN')||vv.find(v=>v.lang.startsWith('zh'))||null;}
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=ldV;ldV();}
+function speak(t,btn){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.85;
+  if(ttsV)u.voice=ttsV;
+  if(btn){btn.classList.add('spkanim');u.onend=u.onerror=()=>btn.classList.remove('spkanim');}
+  window.speechSynthesis.speak(u);
+}
+
+/* ══ TOAST ══ */
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+/* ══ SRS Engine (SM-2) ══ */
+const KS='hsk1_srs',KL='hsk1_lnd',KX='hsk1_xp',KT='hsk1_strk';
+let SR=JSON.parse(localStorage.getItem(KS)||'{}');
+let LR=JSON.parse(localStorage.getItem(KL)||'{}');
+let XP=parseInt(localStorage.getItem(KX)||'0');
+let ST=JSON.parse(localStorage.getItem(KT)||'{"c":0,"d":""}');
+const ss=()=>localStorage.setItem(KS,JSON.stringify(SR));
+const sl=()=>localStorage.setItem(KL,JSON.stringify(LR));
+const sx=()=>localStorage.setItem(KX,XP.toString());
+const st=()=>localStorage.setItem(KT,JSON.stringify(ST));
+const isL=h=>h in LR;
+const isDue=h=>{const s=SR[h];return!s||Date.now()>=s.nextDue;};
+function addXP(n){XP+=n;sx();ud();}
+function mkLnd(h){if(!isL(h)){LR[h]=1;addXP(10);sl();chkStrk();toast('+10 XP ✓');}}
+function chkStrk(){const today=new Date().toDateString();if(ST.d!==today){ST.c=ST.d===new Date(Date.now()-86400000).toDateString()?ST.c+1:1;ST.d=today;st();}}
+function srsRate(h,q){
+  let s=SR[h]||{ease:2.5,interval:1,reps:0,nextDue:0};
+  if(q<3){s.interval=1;s.reps=0;}
+  else{if(s.reps===0)s.interval=1;else if(s.reps===1)s.interval=6;else s.interval=Math.round(s.interval*s.ease);s.reps++;s.ease=Math.max(1.3,s.ease+(0.1-(5-q)*(0.08+(5-q)*0.02)));}
+  s.nextDue=Date.now()+s.interval*86400000;SR[h]=s;ss();
+  if(q>=3)mkLnd(h);addXP(q>=3?5:2);
+}
+function getSrsB(h){if(!SR[h])return'<span class="srs-b srs-new">ใหม่</span>';if(isDue(h))return'<span class="srs-b srs-due">ทบทวน</span>';return'<span class="srs-b srs-ok">✓</span>';}
+function ud(){
+  const lnd=Object.keys(LR).length,pct=Math.round(lnd/W.length*100);
+  document.getElementById('stLnd').textContent=lnd;
+  document.getElementById('stStreak').textContent=ST.c+'🔥';
+  document.getElementById('stXP').textContent=XP;
+  document.getElementById('xpDisp').textContent=XP;
+  document.getElementById('progBar').style.width=pct+'%';
+}
+
+/* ══ PINYIN HELPERS ══ */
+// Map sentence characters to pinyin tokens
+// We store ex as {cn, pin, th} where pin is pinyin for each syllable separated by spaces
+// For display: show cn with ruby-like pinyin above each word
+
+function exHtml(ex){
+  if(!ex)return'';
+  let html='';
+  if(ex.pin){
+    html+=`<div class="modal-ex-cn">${ex.cn}</div>`;
+    html+=`<div class="modal-ex-pin">${ex.pin}</div>`;
+    html+=`<div class="modal-ex-th">${ex.th}</div>`;
+  } else {
+    html+=`<div class="modal-ex-cn">${ex.cn}</div>`;
+    html+=`<div class="modal-ex-th">${ex.th}</div>`;
+  }
+  return html;
+}
+
+function exHtmlCard(ex){
+  if(!ex)return'';
+  let html='';
+  if(ex.pin){
+    html+=`<div class="fc-ex-cn">${ex.cn}</div>`;
+    html+=`<div class="fc-ex-pin">${ex.pin}</div>`;
+    html+=`<div class="fc-ex-th">${ex.th}</div>`;
+  } else {
+    html+=`<div class="fc-ex-cn">${ex.cn}</div>`;
+    html+=`<div class="fc-ex-th">${ex.th}</div>`;
+  }
+  return html;
+}
+
+/* ══ VOCABULARY DATA — 500 คำ HSK 1 ══ */
+const W=[
+  // ── สรรพนาม (18) ──
+  {h:"我",p:"wǒ",m:"ฉัน/ผม",c:"สรรพนาม",ex:{cn:"我是学生。",pin:"Wǒ shì xuésheng.",th:"ฉันเป็นนักเรียน"}},
+  {h:"你",p:"nǐ",m:"คุณ/เธอ",c:"สรรพนาม",ex:{cn:"你好！",pin:"Nǐ hǎo!",th:"สวัสดี!"}},
+  {h:"他",p:"tā",m:"เขา (ชาย)",c:"สรรพนาม",ex:{cn:"他是老师。",pin:"Tā shì lǎoshī.",th:"เขาเป็นครู"}},
+  {h:"她",p:"tā",m:"เธอ (หญิง)",c:"สรรพนาม",ex:{cn:"她很漂亮。",pin:"Tā hěn piàoliang.",th:"เธอสวยมาก"}},
+  {h:"它",p:"tā",m:"มัน (สิ่งของ/สัตว์)",c:"สรรพนาม",ex:{cn:"它是我的猫。",pin:"Tā shì wǒ de māo.",th:"มันเป็นแมวของฉัน"}},
+  {h:"我们",p:"wǒmen",m:"พวกเรา",c:"สรรพนาม",ex:{cn:"我们都是朋友。",pin:"Wǒmen dōu shì péngyou.",th:"พวกเราเป็นเพื่อนกัน"}},
+  {h:"你们",p:"nǐmen",m:"พวกคุณ",c:"สรรพนาม",ex:{cn:"你们好！",pin:"Nǐmen hǎo!",th:"สวัสดีทุกคน!"}},
+  {h:"他们",p:"tāmen",m:"พวกเขา",c:"สรรพนาม",ex:{cn:"他们是学生。",pin:"Tāmen shì xuésheng.",th:"พวกเขาเป็นนักเรียน"}},
+  {h:"她们",p:"tāmen",m:"พวกเธอ",c:"สรรพนาม",ex:{cn:"她们是朋友。",pin:"Tāmen shì péngyou.",th:"พวกเธอเป็นเพื่อน"}},
+  {h:"这",p:"zhè",m:"นี่",c:"สรรพนาม",ex:{cn:"这是我的书。",pin:"Zhè shì wǒ de shū.",th:"นี่คือหนังสือของฉัน"}},
+  {h:"那",p:"nà",m:"นั่น",c:"สรรพนาม",ex:{cn:"那是什么？",pin:"Nà shì shénme?",th:"นั่นคืออะไร?"}},
+  {h:"这里",p:"zhèlǐ",m:"ที่นี่",c:"สรรพนาม",ex:{cn:"我在这里。",pin:"Wǒ zài zhèlǐ.",th:"ฉันอยู่ที่นี่"}},
+  {h:"那里",p:"nàlǐ",m:"ที่นั่น",c:"สรรพนาม",ex:{cn:"他在那里。",pin:"Tā zài nàlǐ.",th:"เขาอยู่ที่นั่น"}},
+  {h:"这个",p:"zhège",m:"อันนี้/คนนี้",c:"สรรพนาม",ex:{cn:"这个多少钱？",pin:"Zhège duōshao qián?",th:"อันนี้เท่าไร?"}},
+  {h:"那个",p:"nàge",m:"อันนั้น/คนนั้น",c:"สรรพนาม",ex:{cn:"那个是我的。",pin:"Nàge shì wǒ de.",th:"อันนั้นเป็นของฉัน"}},
+  {h:"自己",p:"zìjǐ",m:"ตัวเอง",c:"สรรพนาม",ex:{cn:"自己做。",pin:"Zìjǐ zuò.",th:"ทำเอง"}},
+  {h:"大家",p:"dàjiā",m:"ทุกคน",c:"สรรพนาม",ex:{cn:"大家好！",pin:"Dàjiā hǎo!",th:"สวัสดีทุกคน!"}},
+  {h:"别人",p:"biérén",m:"คนอื่น",c:"สรรพนาม",ex:{cn:"别人不知道。",pin:"Biérén bù zhīdào.",th:"คนอื่นไม่รู้"}},
+  // ── คำถาม (10) ──
+  {h:"什么",p:"shénme",m:"อะไร",c:"คำถาม",ex:{cn:"你叫什么名字？",pin:"Nǐ jiào shénme míngzi?",th:"คุณชื่ออะไร?"}},
+  {h:"谁",p:"shéi",m:"ใคร",c:"คำถาม",ex:{cn:"他是谁？",pin:"Tā shì shéi?",th:"เขาเป็นใคร?"}},
+  {h:"哪",p:"nǎ",m:"ที่ไหน/อันไหน",c:"คำถาม",ex:{cn:"你是哪国人？",pin:"Nǐ shì nǎ guó rén?",th:"คุณเป็นคนประเทศไหน?"}},
+  {h:"哪里",p:"nǎlǐ",m:"ที่ไหน",c:"คำถาม",ex:{cn:"你在哪里？",pin:"Nǐ zài nǎlǐ?",th:"คุณอยู่ที่ไหน?"}},
+  {h:"哪儿",p:"nǎr",m:"ที่ไหน (พูด)",c:"คำถาม",ex:{cn:"你去哪儿？",pin:"Nǐ qù nǎr?",th:"คุณไปไหน?"}},
+  {h:"怎么",p:"zěnme",m:"อย่างไร",c:"คำถาม",ex:{cn:"怎么走？",pin:"Zěnme zǒu?",th:"ไปอย่างไร?"}},
+  {h:"怎么样",p:"zěnmeyàng",m:"เป็นอย่างไร",c:"คำถาม",ex:{cn:"你怎么样？",pin:"Nǐ zěnmeyàng?",th:"คุณเป็นอย่างไรบ้าง?"}},
+  {h:"多少",p:"duōshao",m:"เท่าไร",c:"คำถาม",ex:{cn:"多少钱？",pin:"Duōshao qián?",th:"ราคาเท่าไร?"}},
+  {h:"几",p:"jǐ",m:"กี่",c:"คำถาม",ex:{cn:"几岁了？",pin:"Jǐ suì le?",th:"อายุกี่ขวบ?"}},
+  {h:"为什么",p:"wèishénme",m:"ทำไม",c:"คำถาม",ex:{cn:"为什么去学校？",pin:"Wèishénme qù xuéxiào?",th:"ทำไมถึงไปโรงเรียน?"}},
+  // ── ตัวเลข (19) ──
+  {h:"零",p:"líng",m:"ศูนย์ (0)",c:"ตัวเลข",ex:{cn:"零下十度。",pin:"Líng xià shí dù.",th:"ติดลบสิบองศา"}},
+  {h:"一",p:"yī",m:"หนึ่ง (1)",c:"ตัวเลข",ex:{cn:"我有一本书。",pin:"Wǒ yǒu yī běn shū.",th:"ฉันมีหนังสือหนึ่งเล่ม"}},
+  {h:"二",p:"èr",m:"สอง (2)",c:"ตัวเลข",ex:{cn:"二月很冷。",pin:"Èr yuè hěn lěng.",th:"เดือนกุมภาพันธ์หนาวมาก"}},
+  {h:"三",p:"sān",m:"สาม (3)",c:"ตัวเลข",ex:{cn:"三个人。",pin:"Sān gè rén.",th:"สามคน"}},
+  {h:"四",p:"sì",m:"สี่ (4)",c:"ตัวเลข",ex:{cn:"四月天气好。",pin:"Sì yuè tiānqì hǎo.",th:"เดือนเมษายนอากาศดี"}},
+  {h:"五",p:"wǔ",m:"ห้า (5)",c:"ตัวเลข",ex:{cn:"五月五日。",pin:"Wǔ yuè wǔ rì.",th:"วันที่ 5 พฤษภาคม"}},
+  {h:"六",p:"liù",m:"หก (6)",c:"ตัวเลข",ex:{cn:"六点钟出发。",pin:"Liù diǎn zhōng chūfā.",th:"ออกเดินทางหกโมง"}},
+  {h:"七",p:"qī",m:"เจ็ด (7)",c:"ตัวเลข",ex:{cn:"七天七夜。",pin:"Qī tiān qī yè.",th:"เจ็ดวันเจ็ดคืน"}},
+  {h:"八",p:"bā",m:"แปด (8)",c:"ตัวเลข",ex:{cn:"八个月了。",pin:"Bā gè yuè le.",th:"แปดเดือนแล้ว"}},
+  {h:"九",p:"jiǔ",m:"เก้า (9)",c:"ตัวเลข",ex:{cn:"九点见面。",pin:"Jiǔ diǎn jiànmiàn.",th:"เจอกันเก้าโมง"}},
+  {h:"十",p:"shí",m:"สิบ (10)",c:"ตัวเลข",ex:{cn:"十块钱。",pin:"Shí kuài qián.",th:"สิบหยวน"}},
+  {h:"百",p:"bǎi",m:"ร้อย (100)",c:"ตัวเลข",ex:{cn:"一百元钱。",pin:"Yī bǎi yuán qián.",th:"หนึ่งร้อยหยวน"}},
+  {h:"千",p:"qiān",m:"พัน (1,000)",c:"ตัวเลข",ex:{cn:"一千块钱。",pin:"Yī qiān kuài qián.",th:"หนึ่งพันหยวน"}},
+  {h:"万",p:"wàn",m:"หมื่น (10,000)",c:"ตัวเลข",ex:{cn:"一万元。",pin:"Yī wàn yuán.",th:"หนึ่งหมื่นหยวน"}},
+  {h:"两",p:"liǎng",m:"สอง (นำหน้าลักษณนาม)",c:"ตัวเลข",ex:{cn:"两个人来了。",pin:"Liǎng gè rén lái le.",th:"มาสองคนแล้ว"}},
+  {h:"第一",p:"dì yī",m:"ที่หนึ่ง/อันดับ 1",c:"ตัวเลข",ex:{cn:"我是第一名。",pin:"Wǒ shì dì yī míng.",th:"ฉันเป็นอันดับหนึ่ง"}},
+  {h:"第二",p:"dì èr",m:"ที่สอง/อันดับ 2",c:"ตัวเลข",ex:{cn:"他是第二名。",pin:"Tā shì dì èr míng.",th:"เขาเป็นอันดับสอง"}},
+  {h:"一半",p:"yī bàn",m:"ครึ่งหนึ่ง",c:"ตัวเลข",ex:{cn:"吃了一半。",pin:"Chī le yī bàn.",th:"กินไปครึ่งหนึ่งแล้ว"}},
+  {h:"双",p:"shuāng",m:"คู่/สอง",c:"ตัวเลข",ex:{cn:"一双鞋子。",pin:"Yī shuāng xiézi.",th:"รองเท้าหนึ่งคู่"}},
+  // ── เวลา (46) ──
+  {h:"年",p:"nián",m:"ปี",c:"เวลา",ex:{cn:"今年是什么年？",pin:"Jīnnián shì shénme nián?",th:"ปีนี้เป็นปีอะไร?"}},
+  {h:"月",p:"yuè",m:"เดือน/ดวงจันทร์",c:"เวลา",ex:{cn:"这个月很忙。",pin:"Zhège yuè hěn máng.",th:"เดือนนี้ยุ่งมาก"}},
+  {h:"日",p:"rì",m:"วัน/วันที่",c:"เวลา",ex:{cn:"今天几月几日？",pin:"Jīntiān jǐ yuè jǐ rì?",th:"วันนี้วันที่เท่าไร?"}},
+  {h:"号",p:"hào",m:"วันที่ (พูด)",c:"เวลา",ex:{cn:"今天几号？",pin:"Jīntiān jǐ hào?",th:"วันนี้วันที่เท่าไหร่?"}},
+  {h:"今天",p:"jīntiān",m:"วันนี้",c:"เวลา",ex:{cn:"今天天气很好。",pin:"Jīntiān tiānqì hěn hǎo.",th:"วันนี้อากาศดีมาก"}},
+  {h:"明天",p:"míngtiān",m:"พรุ่งนี้",c:"เวลา",ex:{cn:"明天见！",pin:"Míngtiān jiàn!",th:"พรุ่งนี้เจอกัน!"}},
+  {h:"昨天",p:"zuótiān",m:"เมื่อวาน",c:"เวลา",ex:{cn:"昨天我去了学校。",pin:"Zuótiān wǒ qù le xuéxiào.",th:"เมื่อวานฉันไปโรงเรียน"}},
+  {h:"后天",p:"hòutiān",m:"มะรืนนี้",c:"เวลา",ex:{cn:"后天我有课。",pin:"Hòutiān wǒ yǒu kè.",th:"มะรืนฉันมีเรียน"}},
+  {h:"前天",p:"qiántiān",m:"วันก่อนเมื่อวาน",c:"เวลา",ex:{cn:"前天下雨了。",pin:"Qiántiān xià yǔ le.",th:"วันก่อนเมื่อวานฝนตก"}},
+  {h:"现在",p:"xiànzài",m:"ตอนนี้",c:"เวลา",ex:{cn:"现在几点了？",pin:"Xiànzài jǐ diǎn le?",th:"ตอนนี้กี่โมงแล้ว?"}},
+  {h:"上午",p:"shàngwǔ",m:"ช่วงเช้า (ก่อนเที่ยง)",c:"เวลา",ex:{cn:"上午九点上课。",pin:"Shàngwǔ jiǔ diǎn shàng kè.",th:"เก้าโมงเช้าเริ่มเรียน"}},
+  {h:"下午",p:"xiàwǔ",m:"ช่วงบ่าย (หลังเที่ยง)",c:"เวลา",ex:{cn:"下午三点见。",pin:"Xiàwǔ sān diǎn jiàn.",th:"บ่ายสามโมงเจอกัน"}},
+  {h:"晚上",p:"wǎnshang",m:"ตอนเย็น/กลางคืน",c:"เวลา",ex:{cn:"晚上好！",pin:"Wǎnshang hǎo!",th:"สวัสดีตอนเย็น!"}},
+  {h:"早上",p:"zǎoshang",m:"ตอนเช้า",c:"เวลา",ex:{cn:"早上好！",pin:"Zǎoshang hǎo!",th:"สวัสดีตอนเช้า!"}},
+  {h:"中午",p:"zhōngwǔ",m:"เที่ยง",c:"เวลา",ex:{cn:"中午吃饭了。",pin:"Zhōngwǔ chī fàn le.",th:"กินข้าวเที่ยงแล้ว"}},
+  {h:"点",p:"diǎn",m:"โมง/จุด",c:"เวลา",ex:{cn:"现在八点钟。",pin:"Xiànzài bā diǎn zhōng.",th:"ตอนนี้แปดโมง"}},
+  {h:"分",p:"fēn",m:"นาที",c:"เวลา",ex:{cn:"等五分。",pin:"Děng wǔ fēn.",th:"รอห้านาที"}},
+  {h:"分钟",p:"fēnzhōng",m:"นาที",c:"เวลา",ex:{cn:"等十分钟。",pin:"Děng shí fēnzhōng.",th:"รอสิบนาที"}},
+  {h:"小时",p:"xiǎoshí",m:"ชั่วโมง",c:"เวลา",ex:{cn:"等了一个小时。",pin:"Děng le yī gè xiǎoshí.",th:"รอหนึ่งชั่วโมงแล้ว"}},
+  {h:"半",p:"bàn",m:"ครึ่ง",c:"เวลา",ex:{cn:"八点半出发。",pin:"Bā diǎn bàn chūfā.",th:"แปดโมงครึ่งออกเดินทาง"}},
+  {h:"时候",p:"shíhou",m:"เวลา/ตอน",c:"เวลา",ex:{cn:"什么时候来？",pin:"Shénme shíhou lái?",th:"จะมาตอนไหน?"}},
+  {h:"时间",p:"shíjiān",m:"เวลา (นาม)",c:"เวลา",ex:{cn:"没有时间了。",pin:"Méi yǒu shíjiān le.",th:"ไม่มีเวลาแล้ว"}},
+  {h:"星期",p:"xīngqī",m:"สัปดาห์",c:"เวลา",ex:{cn:"这个星期很忙。",pin:"Zhège xīngqī hěn máng.",th:"สัปดาห์นี้ยุ่งมาก"}},
+  {h:"星期一",p:"xīngqīyī",m:"วันจันทร์",c:"เวลา",ex:{cn:"星期一上课。",pin:"Xīngqīyī shàng kè.",th:"วันจันทร์มีเรียน"}},
+  {h:"星期二",p:"xīngqīèr",m:"วันอังคาร",c:"เวลา",ex:{cn:"星期二见。",pin:"Xīngqīèr jiàn.",th:"เจอกันวันอังคาร"}},
+  {h:"星期三",p:"xīngqīsān",m:"วันพุธ",c:"เวลา",ex:{cn:"星期三开会。",pin:"Xīngqīsān kāihuì.",th:"วันพุธประชุม"}},
+  {h:"星期四",p:"xīngqīsì",m:"วันพฤหัสบดี",c:"เวลา",ex:{cn:"星期四下午下课。",pin:"Xīngqīsì xiàwǔ xià kè.",th:"วันพฤหัสบ่ายเลิกเรียน"}},
+  {h:"星期五",p:"xīngqīwǔ",m:"วันศุกร์",c:"เวลา",ex:{cn:"星期五下班了。",pin:"Xīngqīwǔ xià bān le.",th:"วันศุกร์เลิกงานแล้ว"}},
+  {h:"星期六",p:"xīngqīliù",m:"วันเสาร์",c:"เวลา",ex:{cn:"星期六休息。",pin:"Xīngqīliù xiūxi.",th:"วันเสาร์หยุดพัก"}},
+  {h:"星期日",p:"xīngqīrì",m:"วันอาทิตย์",c:"เวลา",ex:{cn:"星期日在家。",pin:"Xīngqīrì zài jiā.",th:"วันอาทิตย์อยู่บ้าน"}},
+  {h:"周末",p:"zhōumò",m:"วันหยุดสุดสัปดาห์",c:"เวลา",ex:{cn:"周末我在家休息。",pin:"Zhōumò wǒ zài jiā xiūxi.",th:"วันหยุดฉันพักผ่อนอยู่บ้าน"}},
+  {h:"每天",p:"měitiān",m:"ทุกวัน",c:"เวลา",ex:{cn:"我每天学习汉语。",pin:"Wǒ měitiān xuéxí Hànyǔ.",th:"ฉันเรียนภาษาจีนทุกวัน"}},
+  {h:"每",p:"měi",m:"ทุก...",c:"เวลา",ex:{cn:"每个人都来了。",pin:"Měi gè rén dōu lái le.",th:"ทุกคนมาแล้ว"}},
+  {h:"今年",p:"jīnnián",m:"ปีนี้",c:"เวลา",ex:{cn:"今年我二十岁。",pin:"Jīnnián wǒ èrshí suì.",th:"ปีนี้ฉันอายุ 20 ปี"}},
+  {h:"去年",p:"qùnián",m:"ปีที่แล้ว",c:"เวลา",ex:{cn:"去年我去了北京。",pin:"Qùnián wǒ qù le Běijīng.",th:"ปีที่แล้วฉันไปปักกิ่ง"}},
+  {h:"明年",p:"míngnián",m:"ปีหน้า",c:"เวลา",ex:{cn:"明年再见！",pin:"Míngnián zàijiàn!",th:"ปีหน้าเจอกัน!"}},
+  {h:"以前",p:"yǐqián",m:"ก่อนหน้า/ในอดีต",c:"เวลา",ex:{cn:"以前我不会说中文。",pin:"Yǐqián wǒ bù huì shuō Zhōngwén.",th:"ก่อนหน้านี้ฉันพูดจีนไม่ได้"}},
+  {h:"以后",p:"yǐhòu",m:"ต่อไป/ในอนาคต",c:"เวลา",ex:{cn:"以后再说吧。",pin:"Yǐhòu zài shuō ba.",th:"ค่อยพูดทีหลังนะ"}},
+  {h:"最近",p:"zuìjìn",m:"เร็วๆ นี้",c:"เวลา",ex:{cn:"最近你好吗？",pin:"Zuìjìn nǐ hǎo ma?",th:"เร็วๆ นี้สบายดีไหม?"}},
+  {h:"马上",p:"mǎshàng",m:"ทันที",c:"เวลา",ex:{cn:"马上就来。",pin:"Mǎshàng jiù lái.",th:"มาทันทีเลย"}},
+  {h:"一会儿",p:"yīhuìr",m:"อีกสักครู่",c:"เวลา",ex:{cn:"一会儿见。",pin:"Yīhuìr jiàn.",th:"เดี๋ยวเจอกัน"}},
+  {h:"刚才",p:"gāngcái",m:"เมื่อกี้",c:"เวลา",ex:{cn:"刚才他来了。",pin:"Gāngcái tā lái le.",th:"เมื่อกี้เขามาแล้ว"}},
+  {h:"经常",p:"jīngcháng",m:"บ่อยครั้ง/เป็นประจำ",c:"เวลา",ex:{cn:"我经常去图书馆。",pin:"Wǒ jīngcháng qù túshūguǎn.",th:"ฉันไปห้องสมุดบ่อยๆ"}},
+  {h:"有时候",p:"yǒushíhou",m:"บางครั้ง",c:"เวลา",ex:{cn:"有时候下雨。",pin:"Yǒushíhou xià yǔ.",th:"บางครั้งฝนตก"}},
+  {h:"一直",p:"yīzhí",m:"ตลอดเวลา/ตรงไป",c:"เวลา",ex:{cn:"一直走到头。",pin:"Yīzhí zǒu dào tóu.",th:"เดินตรงไปจนสุดทาง"}},
+  {h:"快",p:"kuài",m:"เร็ว/เร็วๆ (ใกล้จะ)",c:"เวลา",ex:{cn:"快到了。",pin:"Kuài dào le.",th:"ใกล้ถึงแล้ว"}},
+  // ── คำทักทาย (14) ──
+  {h:"你好",p:"nǐ hǎo",m:"สวัสดี",c:"คำทักทาย",ex:{cn:"你好，我叫小明。",pin:"Nǐ hǎo, wǒ jiào Xiǎomíng.",th:"สวัสดี ฉันชื่อเสี่ยวหมิง"}},
+  {h:"您好",p:"nín hǎo",m:"สวัสดี (สุภาพ)",c:"คำทักทาย",ex:{cn:"您好，请坐。",pin:"Nín hǎo, qǐng zuò.",th:"สวัสดีครับ กรุณานั่ง"}},
+  {h:"你好吗",p:"nǐ hǎo ma",m:"สบายดีไหม",c:"คำทักทาย",ex:{cn:"你好吗？我很好。",pin:"Nǐ hǎo ma? Wǒ hěn hǎo.",th:"สบายดีไหม? ฉันสบายดี"}},
+  {h:"谢谢",p:"xièxie",m:"ขอบคุณ",c:"คำทักทาย",ex:{cn:"谢谢你帮我！",pin:"Xièxie nǐ bāng wǒ!",th:"ขอบคุณที่ช่วยฉัน!"}},
+  {h:"再见",p:"zàijiàn",m:"ลาก่อน",c:"คำทักทาย",ex:{cn:"明天再见！",pin:"Míngtiān zàijiàn!",th:"พรุ่งนี้ลาก่อนนะ!"}},
+  {h:"对不起",p:"duìbuqǐ",m:"ขอโทษ",c:"คำทักทาย",ex:{cn:"对不起，我来晚了。",pin:"Duìbuqǐ, wǒ lái wǎn le.",th:"ขอโทษ ฉันมาสาย"}},
+  {h:"不客气",p:"bù kèqi",m:"ไม่เป็นไร (ตอบขอบคุณ)",c:"คำทักทาย",ex:{cn:"谢谢！不客气！",pin:"Xièxie! Bù kèqi!",th:"ขอบคุณ! — ไม่เป็นไร!"}},
+  {h:"没关系",p:"méi guānxi",m:"ไม่เป็นไร",c:"คำทักทาย",ex:{cn:"没关系，没问题。",pin:"Méi guānxi, méi wèntí.",th:"ไม่เป็นไร ไม่มีปัญหา"}},
+  {h:"请",p:"qǐng",m:"กรุณา/เชิญ",c:"คำทักทาย",ex:{cn:"请进来。",pin:"Qǐng jìn lái.",th:"กรุณาเข้ามา"}},
+  {h:"晚安",p:"wǎn'ān",m:"ราตรีสวัสดิ์",c:"คำทักทาย",ex:{cn:"晚安，好梦。",pin:"Wǎn'ān, hǎo mèng.",th:"ราตรีสวัสดิ์ ฝันดี"}},
+  {h:"早",p:"zǎo",m:"สวัสดีตอนเช้า",c:"คำทักทาย",ex:{cn:"早！今天好吗？",pin:"Zǎo! Jīntiān hǎo ma?",th:"อรุณสวัสดิ์! วันนี้ดีไหม?"}},
+  {h:"好的",p:"hǎo de",m:"ตกลง/ดีครับ",c:"คำทักทาย",ex:{cn:"好的，我明白了。",pin:"Hǎo de, wǒ míngbai le.",th:"ตกลง ฉันเข้าใจแล้ว"}},
+  {h:"是的",p:"shì de",m:"ใช่ครับ/ค่ะ",c:"คำทักทาย",ex:{cn:"是的，没错。",pin:"Shì de, méi cuò.",th:"ใช่ครับ ถูกต้อง"}},
+  {h:"没问题",p:"méi wèntí",m:"ไม่มีปัญหา",c:"คำทักทาย",ex:{cn:"没问题，我来做。",pin:"Méi wèntí, wǒ lái zuò.",th:"ไม่มีปัญหา ให้ฉันทำ"}},
+  // ── คน (6) ──
+  {h:"人",p:"rén",m:"คน/มนุษย์",c:"คน",ex:{cn:"这个人很好。",pin:"Zhège rén hěn hǎo.",th:"คนนี้ดีมาก"}},
+  {h:"朋友",p:"péngyou",m:"เพื่อน",c:"คน",ex:{cn:"他是我的好朋友。",pin:"Tā shì wǒ de hǎo péngyou.",th:"เขาเป็นเพื่อนที่ดีของฉัน"}},
+  {h:"同学",p:"tóngxué",m:"เพื่อนร่วมชั้น",c:"คน",ex:{cn:"我的同学很多。",pin:"Wǒ de tóngxué hěn duō.",th:"เพื่อนร่วมชั้นของฉันเยอะมาก"}},
+  {h:"同事",p:"tóngshì",m:"เพื่อนร่วมงาน",c:"คน",ex:{cn:"他是我的同事。",pin:"Tā shì wǒ de tóngshì.",th:"เขาเป็นเพื่อนร่วมงานของฉัน"}},
+  {h:"先生",p:"xiānsheng",m:"คุณผู้ชาย/สามี",c:"คน",ex:{cn:"王先生，您好！",pin:"Wáng xiānsheng, nín hǎo!",th:"สวัสดีครับ คุณหวัง!"}},
+  {h:"小姐",p:"xiǎojiě",m:"คุณผู้หญิง",c:"คน",ex:{cn:"李小姐，请坐。",pin:"Lǐ xiǎojiě, qǐng zuò.",th:"คุณหลี่ กรุณานั่ง"}},
+  // ── อาชีพ (6) ──
+  {h:"老师",p:"lǎoshī",m:"ครู/อาจารย์",c:"อาชีพ",ex:{cn:"老师对我们很好。",pin:"Lǎoshī duì wǒmen hěn hǎo.",th:"ครูดีต่อพวกเรามาก"}},
+  {h:"学生",p:"xuésheng",m:"นักเรียน/นักศึกษา",c:"อาชีพ",ex:{cn:"我是大学生。",pin:"Wǒ shì dàxuésheng.",th:"ฉันเป็นนักศึกษาปริญญาตรี"}},
+  {h:"医生",p:"yīshēng",m:"หมอ/แพทย์",c:"อาชีพ",ex:{cn:"他是医生。",pin:"Tā shì yīshēng.",th:"เขาเป็นหมอ"}},
+  {h:"护士",p:"hùshi",m:"พยาบาล",c:"อาชีพ",ex:{cn:"她是护士。",pin:"Tā shì hùshi.",th:"เธอเป็นพยาบาล"}},
+  {h:"司机",p:"sījī",m:"คนขับรถ",c:"อาชีพ",ex:{cn:"他是出租车司机。",pin:"Tā shì chūzūchē sījī.",th:"เขาเป็นคนขับแท็กซี่"}},
+  {h:"服务员",p:"fúwùyuán",m:"พนักงานบริการ",c:"อาชีพ",ex:{cn:"服务员，买单！",pin:"Fúwùyuán, mǎi dān!",th:"พนักงาน เก็บเงินด้วย!"}},
+  // ── ครอบครัว (15) ──
+  {h:"家",p:"jiā",m:"บ้าน/ครอบครัว",c:"ครอบครัว",ex:{cn:"我回家了。",pin:"Wǒ huí jiā le.",th:"ฉันกลับบ้านแล้ว"}},
+  {h:"爸爸",p:"bàba",m:"พ่อ",c:"ครอบครัว",ex:{cn:"我爸爸很高。",pin:"Wǒ bàba hěn gāo.",th:"พ่อของฉันสูงมาก"}},
+  {h:"妈妈",p:"māma",m:"แม่",c:"ครอบครัว",ex:{cn:"妈妈做饭很好吃。",pin:"Māma zuò fàn hěn hǎochī.",th:"อาหารที่แม่ทำอร่อยมาก"}},
+  {h:"父母",p:"fùmǔ",m:"พ่อแม่",c:"ครอบครัว",ex:{cn:"父母很健康。",pin:"Fùmǔ hěn jiànkāng.",th:"พ่อแม่แข็งแรงมาก"}},
+  {h:"儿子",p:"érzi",m:"ลูกชาย",c:"ครอบครัว",ex:{cn:"我有一个儿子。",pin:"Wǒ yǒu yī gè érzi.",th:"ฉันมีลูกชายหนึ่งคน"}},
+  {h:"女儿",p:"nǚér",m:"ลูกสาว",c:"ครอบครัว",ex:{cn:"她是我的女儿。",pin:"Tā shì wǒ de nǚér.",th:"เธอเป็นลูกสาวของฉัน"}},
+  {h:"哥哥",p:"gēge",m:"พี่ชาย",c:"ครอบครัว",ex:{cn:"我哥哥很高。",pin:"Wǒ gēge hěn gāo.",th:"พี่ชายสูงมาก"}},
+  {h:"弟弟",p:"dìdi",m:"น้องชาย",c:"ครอบครัว",ex:{cn:"弟弟在学校学习。",pin:"Dìdi zài xuéxiào xuéxí.",th:"น้องชายเรียนอยู่ที่โรงเรียน"}},
+  {h:"姐姐",p:"jiějie",m:"พี่สาว",c:"ครอบครัว",ex:{cn:"姐姐很漂亮。",pin:"Jiějie hěn piàoliang.",th:"พี่สาวสวยมาก"}},
+  {h:"妹妹",p:"mèimei",m:"น้องสาว",c:"ครอบครัว",ex:{cn:"妹妹很可爱。",pin:"Mèimei hěn kě'ài.",th:"น้องสาวน่ารักมาก"}},
+  {h:"丈夫",p:"zhàngfu",m:"สามี",c:"ครอบครัว",ex:{cn:"我丈夫很忙。",pin:"Wǒ zhàngfu hěn máng.",th:"สามีของฉันยุ่งมาก"}},
+  {h:"妻子",p:"qīzi",m:"ภรรยา",c:"ครอบครัว",ex:{cn:"我妻子很好。",pin:"Wǒ qīzi hěn hǎo.",th:"ภรรยาของฉันดีมาก"}},
+  {h:"孩子",p:"háizi",m:"เด็ก/ลูก",c:"ครอบครัว",ex:{cn:"这个孩子很聪明。",pin:"Zhège háizi hěn cōngming.",th:"เด็กคนนี้ฉลาดมาก"}},
+  {h:"爷爷",p:"yéye",m:"ปู่",c:"ครอบครัว",ex:{cn:"爷爷很健康。",pin:"Yéye hěn jiànkāng.",th:"ปู่แข็งแรงมาก"}},
+  {h:"奶奶",p:"nǎinai",m:"ย่า",c:"ครอบครัว",ex:{cn:"奶奶做饭好吃。",pin:"Nǎinai zuò fàn hǎochī.",th:"ย่าทำอาหารอร่อย"}},
+  // ── สัตว์ (10) ──
+  {h:"猫",p:"māo",m:"แมว",c:"สัตว์",ex:{cn:"我有一只猫。",pin:"Wǒ yǒu yī zhī māo.",th:"ฉันมีแมวหนึ่งตัว"}},
+  {h:"狗",p:"gǒu",m:"สุนัข",c:"สัตว์",ex:{cn:"他有一只大狗。",pin:"Tā yǒu yī zhī dà gǒu.",th:"เขามีสุนัขตัวใหญ่หนึ่งตัว"}},
+  {h:"鱼",p:"yú",m:"ปลา",c:"สัตว์",ex:{cn:"我喜欢吃鱼。",pin:"Wǒ xǐhuan chī yú.",th:"ฉันชอบกินปลา"}},
+  {h:"鸟",p:"niǎo",m:"นก",c:"สัตว์",ex:{cn:"树上有很多鸟。",pin:"Shù shàng yǒu hěn duō niǎo.",th:"บนต้นไม้มีนกเยอะมาก"}},
+  {h:"牛",p:"niú",m:"วัว",c:"สัตว์",ex:{cn:"草地上有牛。",pin:"Cǎodì shàng yǒu niú.",th:"ทุ่งหญ้ามีวัว"}},
+  {h:"马",p:"mǎ",m:"ม้า",c:"สัตว์",ex:{cn:"他骑马跑得很快。",pin:"Tā qí mǎ pǎo de hěn kuài.",th:"เขาขี่ม้าวิ่งเร็วมาก"}},
+  {h:"羊",p:"yáng",m:"แกะ/แพะ",c:"สัตว์",ex:{cn:"山上有很多羊。",pin:"Shān shàng yǒu hěn duō yáng.",th:"บนเขามีแกะเยอะมาก"}},
+  {h:"猪",p:"zhū",m:"หมู",c:"สัตว์",ex:{cn:"猪很肥。",pin:"Zhū hěn féi.",th:"หมูอ้วนมาก"}},
+  {h:"鸡",p:"jī",m:"ไก่",c:"สัตว์",ex:{cn:"鸡在院子里。",pin:"Jī zài yuànzi lǐ.",th:"ไก่อยู่ในลาน"}},
+  {h:"虎",p:"hǔ",m:"เสือ",c:"สัตว์",ex:{cn:"老虎很厉害。",pin:"Lǎohǔ hěn lìhai.",th:"เสือน่ากลัวมาก"}},
+  // ── อาหาร (27) ──
+  {h:"饭",p:"fàn",m:"ข้าว/อาหาร",c:"อาหาร",ex:{cn:"吃饭了吗？",pin:"Chī fàn le ma?",th:"กินข้าวหรือยัง?"}},
+  {h:"水",p:"shuǐ",m:"น้ำ",c:"อาหาร",ex:{cn:"多喝水。",pin:"Duō hē shuǐ.",th:"ดื่มน้ำให้มากๆ"}},
+  {h:"茶",p:"chá",m:"ชา",c:"อาหาร",ex:{cn:"喝一杯茶。",pin:"Hē yī bēi chá.",th:"ดื่มชาหนึ่งแก้ว"}},
+  {h:"咖啡",p:"kāfēi",m:"กาแฟ",c:"อาหาร",ex:{cn:"早上喝咖啡。",pin:"Zǎoshang hē kāfēi.",th:"ตอนเช้าดื่มกาแฟ"}},
+  {h:"米饭",p:"mǐfàn",m:"ข้าวสวย",c:"อาหาร",ex:{cn:"我喜欢吃米饭。",pin:"Wǒ xǐhuan chī mǐfàn.",th:"ฉันชอบกินข้าวสวย"}},
+  {h:"面条",p:"miàntiáo",m:"บะหมี่/เส้นก๋วยเตี๋ยว",c:"อาหาร",ex:{cn:"我要吃面条。",pin:"Wǒ yào chī miàntiáo.",th:"ฉันจะกินบะหมี่"}},
+  {h:"面包",p:"miànbāo",m:"ขนมปัง",c:"อาหาร",ex:{cn:"早上吃面包喝牛奶。",pin:"Zǎoshang chī miànbāo hē niúnǎi.",th:"ตอนเช้ากินขนมปังและดื่มนม"}},
+  {h:"包子",p:"bāozi",m:"ซาลาเปา",c:"อาหาร",ex:{cn:"买了三个包子。",pin:"Mǎi le sān gè bāozi.",th:"ซื้อซาลาเปาสามอัน"}},
+  {h:"饺子",p:"jiǎozi",m:"เกี๊ยวจีน",c:"อาหาร",ex:{cn:"过年吃饺子。",pin:"Guò nián chī jiǎozi.",th:"ตรุษจีนกินเกี๊ยว"}},
+  {h:"火锅",p:"huǒguō",m:"หม้อไฟ",c:"อาหาร",ex:{cn:"我们去吃火锅吧。",pin:"Wǒmen qù chī huǒguō ba.",th:"เราไปกินหม้อไฟกันเถอะ"}},
+  {h:"苹果",p:"píngguǒ",m:"แอปเปิ้ล",c:"อาหาร",ex:{cn:"苹果很甜很好吃。",pin:"Píngguǒ hěn tián hěn hǎochī.",th:"แอปเปิ้ลหวานและอร่อยมาก"}},
+  {h:"香蕉",p:"xiāngjiāo",m:"กล้วย",c:"อาหาร",ex:{cn:"吃一根香蕉。",pin:"Chī yī gēn xiāngjiāo.",th:"กินกล้วยหนึ่งลูก"}},
+  {h:"西瓜",p:"xīguā",m:"แตงโม",c:"อาหาร",ex:{cn:"夏天吃西瓜很好。",pin:"Xiàtiān chī xīguā hěn hǎo.",th:"ฤดูร้อนกินแตงโมดีมาก"}},
+  {h:"橘子",p:"júzi",m:"ส้ม",c:"อาหาร",ex:{cn:"橘子是酸的。",pin:"Júzi shì suān de.",th:"ส้มเปรี้ยว"}},
+  {h:"水果",p:"shuǐguǒ",m:"ผลไม้",c:"อาหาร",ex:{cn:"我每天吃水果。",pin:"Wǒ měitiān chī shuǐguǒ.",th:"ฉันกินผลไม้ทุกวัน"}},
+  {h:"蔬菜",p:"shūcài",m:"ผัก",c:"อาหาร",ex:{cn:"多吃蔬菜身体好。",pin:"Duō chī shūcài shēntǐ hǎo.",th:"กินผักเยอะๆ ร่างกายดี"}},
+  {h:"肉",p:"ròu",m:"เนื้อ",c:"อาหาร",ex:{cn:"我不吃红肉。",pin:"Wǒ bù chī hóng ròu.",th:"ฉันไม่กินเนื้อแดง"}},
+  {h:"鸡肉",p:"jīròu",m:"เนื้อไก่",c:"อาหาร",ex:{cn:"我喜欢吃鸡肉。",pin:"Wǒ xǐhuan chī jīròu.",th:"ฉันชอบกินเนื้อไก่"}},
+  {h:"猪肉",p:"zhūròu",m:"เนื้อหมู",c:"อาหาร",ex:{cn:"猪肉炒菜很好吃。",pin:"Zhūròu chǎo cài hěn hǎochī.",th:"ผัดหมูอร่อยมาก"}},
+  {h:"牛肉",p:"niúròu",m:"เนื้อวัว",c:"อาหาร",ex:{cn:"牛肉比猪肉贵。",pin:"Niúròu bǐ zhūròu guì.",th:"เนื้อวัวแพงกว่าเนื้อหมู"}},
+  {h:"鸡蛋",p:"jīdàn",m:"ไข่ไก่",c:"อาหาร",ex:{cn:"早上吃鸡蛋。",pin:"Zǎoshang chī jīdàn.",th:"ตอนเช้ากินไข่ไก่"}},
+  {h:"牛奶",p:"niúnǎi",m:"นมวัว",c:"อาหาร",ex:{cn:"孩子喝牛奶。",pin:"Háizi hē niúnǎi.",th:"เด็กดื่มนมวัว"}},
+  {h:"菜",p:"cài",m:"อาหาร/ผัก",c:"อาหาร",ex:{cn:"这道菜真好吃。",pin:"Zhè dào cài zhēn hǎochī.",th:"อาหารจานนี้อร่อยมาก"}},
+  {h:"好吃",p:"hǎochī",m:"อร่อย",c:"อาหาร",ex:{cn:"妈妈做的菜很好吃。",pin:"Māma zuò de cài hěn hǎochī.",th:"อาหารที่แม่ทำอร่อยมาก"}},
+  {h:"饿",p:"è",m:"หิว",c:"อาหาร",ex:{cn:"我很饿，想吃饭。",pin:"Wǒ hěn è, xiǎng chī fàn.",th:"ฉันหิวมาก อยากกินข้าว"}},
+  {h:"渴",p:"kě",m:"กระหายน้ำ",c:"อาหาร",ex:{cn:"我很渴，想喝水。",pin:"Wǒ hěn kě, xiǎng hē shuǐ.",th:"ฉันกระหายมาก อยากดื่มน้ำ"}},
+  {h:"餐厅",p:"cāntīng",m:"ห้องอาหาร/ร้านอาหาร",c:"อาหาร",ex:{cn:"我们在餐厅吃饭。",pin:"Wǒmen zài cāntīng chī fàn.",th:"เรากินอาหารที่ร้านอาหาร"}},
+  // ── สถานที่ (20) ──
+  {h:"学校",p:"xuéxiào",m:"โรงเรียน",c:"สถานที่",ex:{cn:"我每天去学校。",pin:"Wǒ měitiān qù xuéxiào.",th:"ฉันไปโรงเรียนทุกวัน"}},
+  {h:"医院",p:"yīyuàn",m:"โรงพยาบาล",c:"สถานที่",ex:{cn:"去医院看病。",pin:"Qù yīyuàn kàn bìng.",th:"ไปโรงพยาบาลหาหมอ"}},
+  {h:"商店",p:"shāngdiàn",m:"ร้านค้า",c:"สถานที่",ex:{cn:"去商店买东西。",pin:"Qù shāngdiàn mǎi dōngxi.",th:"ไปร้านค้าซื้อของ"}},
+  {h:"饭店",p:"fàndiàn",m:"ร้านอาหาร/โรงแรม",c:"สถานที่",ex:{cn:"在饭店吃晚饭。",pin:"Zài fàndiàn chī wǎnfàn.",th:"กินอาหารเย็นที่ร้าน"}},
+  {h:"超市",p:"chāoshì",m:"ซูเปอร์มาร์เก็ต",c:"สถานที่",ex:{cn:"去超市买蔬菜。",pin:"Qù chāoshì mǎi shūcài.",th:"ไปซูเปอร์มาร์เก็ตซื้อผัก"}},
+  {h:"银行",p:"yínháng",m:"ธนาคาร",c:"สถานที่",ex:{cn:"去银行取钱。",pin:"Qù yínháng qǔ qián.",th:"ไปธนาคารถอนเงิน"}},
+  {h:"机场",p:"jīchǎng",m:"สนามบิน",c:"สถานที่",ex:{cn:"去机场接朋友。",pin:"Qù jīchǎng jiē péngyou.",th:"ไปสนามบินรับเพื่อน"}},
+  {h:"火车站",p:"huǒchēzhàn",m:"สถานีรถไฟ",c:"สถานที่",ex:{cn:"去火车站买票。",pin:"Qù huǒchēzhàn mǎi piào.",th:"ไปสถานีรถไฟซื้อตั๋ว"}},
+  {h:"公司",p:"gōngsī",m:"บริษัท",c:"สถานที่",ex:{cn:"在公司工作很忙。",pin:"Zài gōngsī gōngzuò hěn máng.",th:"ทำงานที่บริษัทยุ่งมาก"}},
+  {h:"图书馆",p:"túshūguǎn",m:"ห้องสมุด",c:"สถานที่",ex:{cn:"在图书馆看书。",pin:"Zài túshūguǎn kàn shū.",th:"อ่านหนังสือที่ห้องสมุด"}},
+  {h:"公园",p:"gōngyuán",m:"สวนสาธารณะ",c:"สถานที่",ex:{cn:"在公园散步。",pin:"Zài gōngyuán sàn bù.",th:"เดินเล่นในสวนสาธารณะ"}},
+  {h:"中国",p:"Zhōngguó",m:"ประเทศจีน",c:"สถานที่",ex:{cn:"我想去中国旅游。",pin:"Wǒ xiǎng qù Zhōngguó lǚyóu.",th:"ฉันอยากไปท่องเที่ยวจีน"}},
+  {h:"北京",p:"Běijīng",m:"ปักกิ่ง",c:"สถานที่",ex:{cn:"北京是中国的首都。",pin:"Běijīng shì Zhōngguó de shǒudū.",th:"ปักกิ่งเป็นเมืองหลวงของจีน"}},
+  {h:"上海",p:"Shànghǎi",m:"เซี่ยงไฮ้",c:"สถานที่",ex:{cn:"上海是大城市。",pin:"Shànghǎi shì dà chéngshì.",th:"เซี่ยงไฮ้เป็นเมืองใหญ่"}},
+  {h:"房间",p:"fángjiān",m:"ห้อง",c:"สถานที่",ex:{cn:"这个房间很干净。",pin:"Zhège fángjiān hěn gānjìng.",th:"ห้องนี้สะอาดมาก"}},
+  {h:"教室",p:"jiàoshì",m:"ห้องเรียน",c:"สถานที่",ex:{cn:"在教室里上课。",pin:"Zài jiàoshì lǐ shàng kè.",th:"เรียนอยู่ในห้องเรียน"}},
+  {h:"宾馆",p:"bīnguǎn",m:"โรงแรม",c:"สถานที่",ex:{cn:"住在宾馆里。",pin:"Zhù zài bīnguǎn lǐ.",th:"พักอยู่ที่โรงแรม"}},
+  {h:"厕所",p:"cèsuǒ",m:"ห้องน้ำ",c:"สถานที่",ex:{cn:"厕所在哪里？",pin:"Cèsuǒ zài nǎlǐ?",th:"ห้องน้ำอยู่ที่ไหน?"}},
+  {h:"办公室",p:"bàngōngshì",m:"ห้องทำงาน/ออฟฟิศ",c:"สถานที่",ex:{cn:"在办公室开会。",pin:"Zài bàngōngshì kāihuì.",th:"ประชุมที่ห้องทำงาน"}},
+  {h:"街道",p:"jiēdào",m:"ถนน/ย่าน",c:"สถานที่",ex:{cn:"这条街道很热闹。",pin:"Zhè tiáo jiēdào hěn rènao.",th:"ถนนสายนี้คึกคักมาก"}},
+  // ── การเดินทาง (10) ──
+  {h:"出租车",p:"chūzūchē",m:"แท็กซี่",c:"การเดินทาง",ex:{cn:"坐出租车去机场。",pin:"Zuò chūzūchē qù jīchǎng.",th:"นั่งแท็กซี่ไปสนามบิน"}},
+  {h:"飞机",p:"fēijī",m:"เครื่องบิน",c:"การเดินทาง",ex:{cn:"坐飞机去北京。",pin:"Zuò fēijī qù Běijīng.",th:"นั่งเครื่องบินไปปักกิ่ง"}},
+  {h:"火车",p:"huǒchē",m:"รถไฟ",c:"การเดินทาง",ex:{cn:"坐火车旅行。",pin:"Zuò huǒchē lǚxíng.",th:"นั่งรถไฟท่องเที่ยว"}},
+  {h:"汽车",p:"qìchē",m:"รถยนต์",c:"การเดินทาง",ex:{cn:"开汽车去上班。",pin:"Kāi qìchē qù shàng bān.",th:"ขับรถยนต์ไปทำงาน"}},
+  {h:"地铁",p:"dìtiě",m:"รถไฟใต้ดิน",c:"การเดินทาง",ex:{cn:"坐地铁很方便。",pin:"Zuò dìtiě hěn fāngbiàn.",th:"นั่งรถไฟใต้ดินสะดวกมาก"}},
+  {h:"公共汽车",p:"gōnggòng qìchē",m:"รถประจำทาง",c:"การเดินทาง",ex:{cn:"坐公共汽车上学。",pin:"Zuò gōnggòng qìchē shàng xué.",th:"นั่งรถประจำทางไปโรงเรียน"}},
+  {h:"自行车",p:"zìxíngchē",m:"จักรยาน",c:"การเดินทาง",ex:{cn:"骑自行车上班。",pin:"Qí zìxíngchē shàng bān.",th:"ขี่จักรยานไปทำงาน"}},
+  {h:"摩托车",p:"mótuōchē",m:"มอเตอร์ไซค์",c:"การเดินทาง",ex:{cn:"骑摩托车很快。",pin:"Qí mótuōchē hěn kuài.",th:"ขี่มอเตอร์ไซค์เร็วมาก"}},
+  {h:"船",p:"chuán",m:"เรือ",c:"การเดินทาง",ex:{cn:"坐船看风景。",pin:"Zuò chuán kàn fēngjǐng.",th:"นั่งเรือชมวิว"}},
+  {h:"路",p:"lù",m:"ถนน/เส้นทาง",c:"การเดินทาง",ex:{cn:"这条路很长。",pin:"Zhè tiáo lù hěn cháng.",th:"ถนนสายนี้ยาวมาก"}},
+  // ── ทิศทาง (15) ──
+  {h:"左边",p:"zuǒbian",m:"ด้านซ้าย",c:"ทิศทาง",ex:{cn:"在左边的桌子。",pin:"Zài zuǒbian de zhuōzi.",th:"โต๊ะอยู่ด้านซ้าย"}},
+  {h:"右边",p:"yòubian",m:"ด้านขวา",c:"ทิศทาง",ex:{cn:"在右边转弯。",pin:"Zài yòubian zhuǎn wān.",th:"เลี้ยวที่ด้านขวา"}},
+  {h:"前面",p:"qiánmian",m:"ข้างหน้า",c:"ทิศทาง",ex:{cn:"前面有学校。",pin:"Qiánmian yǒu xuéxiào.",th:"ข้างหน้ามีโรงเรียน"}},
+  {h:"后面",p:"hòumian",m:"ข้างหลัง",c:"ทิศทาง",ex:{cn:"后面有一辆车。",pin:"Hòumian yǒu yī liàng chē.",th:"ข้างหลังมีรถหนึ่งคัน"}},
+  {h:"里面",p:"lǐmian",m:"ข้างใน",c:"ทิศทาง",ex:{cn:"在房间里面。",pin:"Zài fángjiān lǐmian.",th:"อยู่ข้างในห้อง"}},
+  {h:"外面",p:"wàimian",m:"ข้างนอก",c:"ทิศทาง",ex:{cn:"外面天气很好。",pin:"Wàimian tiānqì hěn hǎo.",th:"ข้างนอกอากาศดีมาก"}},
+  {h:"上面",p:"shàngmian",m:"ด้านบน",c:"ทิศทาง",ex:{cn:"书在桌子上面。",pin:"Shū zài zhuōzi shàngmian.",th:"หนังสืออยู่บนโต๊ะ"}},
+  {h:"下面",p:"xiàmian",m:"ด้านล่าง",c:"ทิศทาง",ex:{cn:"包在桌子下面。",pin:"Bāo zài zhuōzi xiàmian.",th:"กระเป๋าอยู่ใต้โต๊ะ"}},
+  {h:"旁边",p:"pángbiān",m:"ข้างๆ",c:"ทิศทาง",ex:{cn:"坐在我旁边。",pin:"Zuò zài wǒ pángbiān.",th:"นั่งข้างๆ ฉัน"}},
+  {h:"中间",p:"zhōngjiān",m:"ตรงกลาง",c:"ทิศทาง",ex:{cn:"站在中间。",pin:"Zhàn zài zhōngjiān.",th:"ยืนอยู่ตรงกลาง"}},
+  {h:"对面",p:"duìmiàn",m:"ฝั่งตรงข้าม",c:"ทิศทาง",ex:{cn:"在对面的商店。",pin:"Zài duìmiàn de shāngdiàn.",th:"ที่ร้านค้าฝั่งตรงข้าม"}},
+  {h:"东",p:"dōng",m:"ทิศตะวันออก",c:"ทิศทาง",ex:{cn:"在东边。",pin:"Zài dōngbian.",th:"อยู่ทางตะวันออก"}},
+  {h:"西",p:"xī",m:"ทิศตะวันตก",c:"ทิศทาง",ex:{cn:"在西边。",pin:"Zài xībian.",th:"อยู่ทางตะวันตก"}},
+  {h:"南",p:"nán",m:"ทิศใต้",c:"ทิศทาง",ex:{cn:"在南边。",pin:"Zài nánbian.",th:"อยู่ทางใต้"}},
+  {h:"北",p:"běi",m:"ทิศเหนือ",c:"ทิศทาง",ex:{cn:"往北走。",pin:"Wǎng běi zǒu.",th:"เดินไปทางเหนือ"}},
+  // ── กริยา (85) ──
+  {h:"是",p:"shì",m:"เป็น/คือ",c:"กริยา",ex:{cn:"我是中国学生。",pin:"Wǒ shì Zhōngguó xuésheng.",th:"ฉันเป็นนักเรียนจีน"}},
+  {h:"有",p:"yǒu",m:"มี",c:"กริยา",ex:{cn:"我有两本书。",pin:"Wǒ yǒu liǎng běn shū.",th:"ฉันมีหนังสือสองเล่ม"}},
+  {h:"在",p:"zài",m:"อยู่ที่/กำลัง",c:"กริยา",ex:{cn:"他在家学习。",pin:"Tā zài jiā xuéxí.",th:"เขาเรียนอยู่ที่บ้าน"}},
+  {h:"叫",p:"jiào",m:"ชื่อว่า/เรียก",c:"กริยา",ex:{cn:"我叫小明。",pin:"Wǒ jiào Xiǎomíng.",th:"ฉันชื่อเสี่ยวหมิง"}},
+  {h:"说",p:"shuō",m:"พูด",c:"กริยา",ex:{cn:"说中文很难。",pin:"Shuō Zhōngwén hěn nán.",th:"พูดภาษาจีนยากมาก"}},
+  {h:"看",p:"kàn",m:"ดู/อ่าน",c:"กริยา",ex:{cn:"看书学习。",pin:"Kàn shū xuéxí.",th:"อ่านหนังสือเรียน"}},
+  {h:"听",p:"tīng",m:"ฟัง",c:"กริยา",ex:{cn:"听音乐放松。",pin:"Tīng yīnyuè fàngsōng.",th:"ฟังเพลงผ่อนคลาย"}},
+  {h:"写",p:"xiě",m:"เขียน",c:"กริยา",ex:{cn:"写汉字很难。",pin:"Xiě Hànzì hěn nán.",th:"เขียนอักษรจีนยากมาก"}},
+  {h:"读",p:"dú",m:"อ่านออกเสียง",c:"กริยา",ex:{cn:"读课文。",pin:"Dú kèwén.",th:"อ่านบทเรียน"}},
+  {h:"吃",p:"chī",m:"กิน",c:"กริยา",ex:{cn:"我要吃饭了。",pin:"Wǒ yào chī fàn le.",th:"ฉันจะกินข้าวแล้ว"}},
+  {h:"喝",p:"hē",m:"ดื่ม",c:"กริยา",ex:{cn:"喝杯水吧。",pin:"Hē bēi shuǐ ba.",th:"ดื่มน้ำสักแก้วนะ"}},
+  {h:"买",p:"mǎi",m:"ซื้อ",c:"กริยา",ex:{cn:"去超市买东西。",pin:"Qù chāoshì mǎi dōngxi.",th:"ไปซูเปอร์มาร์เก็ตซื้อของ"}},
+  {h:"卖",p:"mài",m:"ขาย",c:"กริยา",ex:{cn:"他卖水果。",pin:"Tā mài shuǐguǒ.",th:"เขาขายผลไม้"}},
+  {h:"去",p:"qù",m:"ไป",c:"กริยา",ex:{cn:"我去学校了。",pin:"Wǒ qù xuéxiào le.",th:"ฉันไปโรงเรียนแล้ว"}},
+  {h:"来",p:"lái",m:"มา",c:"กริยา",ex:{cn:"快来吃饭！",pin:"Kuài lái chī fàn!",th:"มากินข้าวเร็วๆ !"}},
+  {h:"回",p:"huí",m:"กลับ",c:"กริยา",ex:{cn:"我回家了。",pin:"Wǒ huí jiā le.",th:"ฉันกลับบ้านแล้ว"}},
+  {h:"走",p:"zǒu",m:"เดิน/ไป",c:"กริยา",ex:{cn:"我们走着去。",pin:"Wǒmen zǒuzhe qù.",th:"เราเดินไป"}},
+  {h:"跑",p:"pǎo",m:"วิ่ง",c:"กริยา",ex:{cn:"他跑得很快。",pin:"Tā pǎo de hěn kuài.",th:"เขาวิ่งเร็วมาก"}},
+  {h:"坐",p:"zuò",m:"นั่ง",c:"กริยา",ex:{cn:"请坐！",pin:"Qǐng zuò!",th:"กรุณานั่ง!"}},
+  {h:"站",p:"zhàn",m:"ยืน",c:"กริยา",ex:{cn:"请站起来。",pin:"Qǐng zhàn qǐlái.",th:"กรุณายืนขึ้น"}},
+  {h:"开",p:"kāi",m:"เปิด/ขับ",c:"กริยา",ex:{cn:"开门进来。",pin:"Kāi mén jìnlái.",th:"เปิดประตูเข้ามา"}},
+  {h:"关",p:"guān",m:"ปิด",c:"กริยา",ex:{cn:"请关门。",pin:"Qǐng guān mén.",th:"กรุณาปิดประตู"}},
+  {h:"进",p:"jìn",m:"เข้า",c:"กริยา",ex:{cn:"请进来。",pin:"Qǐng jìnlái.",th:"กรุณาเข้ามา"}},
+  {h:"出",p:"chū",m:"ออก",c:"กริยา",ex:{cn:"出去玩玩。",pin:"Chūqù wánwán.",th:"ออกไปเล่น"}},
+  {h:"上",p:"shàng",m:"ขึ้น/ไปบน",c:"กริยา",ex:{cn:"上楼梯。",pin:"Shàng lóutī.",th:"ขึ้นบันได"}},
+  {h:"下",p:"xià",m:"ลง/ไปล่าง",c:"กริยา",ex:{cn:"下楼梯。",pin:"Xià lóutī.",th:"ลงบันได"}},
+  {h:"打电话",p:"dǎ diànhuà",m:"โทรศัพท์",c:"กริยา",ex:{cn:"我打电话给你。",pin:"Wǒ dǎ diànhuà gěi nǐ.",th:"ฉันโทรหาคุณ"}},
+  {h:"发短信",p:"fā duǎnxìn",m:"ส่งข้อความ",c:"กริยา",ex:{cn:"发短信给我。",pin:"Fā duǎnxìn gěi wǒ.",th:"ส่งข้อความมาหาฉัน"}},
+  {h:"睡觉",p:"shuìjiào",m:"นอนหลับ",c:"กริยา",ex:{cn:"早点睡觉。",pin:"Zǎodiǎn shuìjiào.",th:"นอนหลับแต่เช้า"}},
+  {h:"起床",p:"qǐchuáng",m:"ตื่นนอน",c:"กริยา",ex:{cn:"早上六点起床。",pin:"Zǎoshang liù diǎn qǐchuáng.",th:"ตื่นนอนหกโมงเช้า"}},
+  {h:"工作",p:"gōngzuò",m:"ทำงาน",c:"กริยา",ex:{cn:"每天工作八小时。",pin:"Měitiān gōngzuò bā xiǎoshí.",th:"ทำงานวันละแปดชั่วโมง"}},
+  {h:"学习",p:"xuéxí",m:"เรียนรู้",c:"กริยา",ex:{cn:"努力学习汉语。",pin:"Nǔlì xuéxí Hànyǔ.",th:"ขยันเรียนภาษาจีน"}},
+  {h:"喜欢",p:"xǐhuan",m:"ชอบ",c:"กริยา",ex:{cn:"我喜欢中文。",pin:"Wǒ xǐhuan Zhōngwén.",th:"ฉันชอบภาษาจีน"}},
+  {h:"爱",p:"ài",m:"รัก",c:"กริยา",ex:{cn:"我爱你。",pin:"Wǒ ài nǐ.",th:"ฉันรักคุณ"}},
+  {h:"认识",p:"rènshi",m:"รู้จัก",c:"กริยา",ex:{cn:"认识你很高兴。",pin:"Rènshi nǐ hěn gāoxìng.",th:"ยินดีที่ได้รู้จักคุณ"}},
+  {h:"住",p:"zhù",m:"อยู่อาศัย",c:"กริยา",ex:{cn:"我住在北京。",pin:"Wǒ zhù zài Běijīng.",th:"ฉันอาศัยอยู่ที่ปักกิ่ง"}},
+  {h:"想",p:"xiǎng",m:"คิด/อยากจะ",c:"กริยา",ex:{cn:"我想去中国。",pin:"Wǒ xiǎng qù Zhōngguó.",th:"ฉันอยากไปจีน"}},
+  {h:"知道",p:"zhīdào",m:"รู้/ทราบ",c:"กริยา",ex:{cn:"我知道了。",pin:"Wǒ zhīdào le.",th:"ฉันรู้แล้ว"}},
+  {h:"觉得",p:"juéde",m:"รู้สึก/คิดว่า",c:"กริยา",ex:{cn:"我觉得很好。",pin:"Wǒ juéde hěn hǎo.",th:"ฉันคิดว่าดีมาก"}},
+  {h:"等",p:"děng",m:"รอ",c:"กริยา",ex:{cn:"等一下。",pin:"Děng yīxià.",th:"รอสักครู่"}},
+  {h:"问",p:"wèn",m:"ถาม",c:"กริยา",ex:{cn:"向老师问问题。",pin:"Xiàng lǎoshī wèn wèntí.",th:"ถามปัญหาครู"}},
+  {h:"告诉",p:"gàosu",m:"บอก/แจ้ง",c:"กริยา",ex:{cn:"告诉我答案。",pin:"Gàosu wǒ dá'àn.",th:"บอกคำตอบฉัน"}},
+  {h:"帮助",p:"bāngzhù",m:"ช่วยเหลือ",c:"กริยา",ex:{cn:"请帮助我。",pin:"Qǐng bāngzhù wǒ.",th:"กรุณาช่วยฉัน"}},
+  {h:"需要",p:"xūyào",m:"ต้องการ",c:"กริยา",ex:{cn:"我需要帮助。",pin:"Wǒ xūyào bāngzhù.",th:"ฉันต้องการความช่วยเหลือ"}},
+  {h:"要",p:"yào",m:"ต้องการ/จะ",c:"กริยา",ex:{cn:"我要一杯水。",pin:"Wǒ yào yī bēi shuǐ.",th:"ฉันต้องการน้ำหนึ่งแก้ว"}},
+  {h:"能",p:"néng",m:"สามารถ",c:"กริยา",ex:{cn:"我能说中文。",pin:"Wǒ néng shuō Zhōngwén.",th:"ฉันสามารถพูดภาษาจีนได้"}},
+  {h:"可以",p:"kěyǐ",m:"ได้/อนุญาต",c:"กริยา",ex:{cn:"可以进来吗？",pin:"Kěyǐ jìnlái ma?",th:"เข้ามาได้ไหม?"}},
+  {h:"应该",p:"yīnggāi",m:"ควรจะ",c:"กริยา",ex:{cn:"你应该努力学习。",pin:"Nǐ yīnggāi nǔlì xuéxí.",th:"คุณควรจะขยันเรียน"}},
+  {h:"用",p:"yòng",m:"ใช้",c:"กริยา",ex:{cn:"用筷子吃饭。",pin:"Yòng kuàizi chī fàn.",th:"ใช้ตะเกียบกินข้าว"}},
+  {h:"放",p:"fàng",m:"วาง/ปล่อย",c:"กริยา",ex:{cn:"放在桌子上。",pin:"Fàng zài zhuōzi shàng.",th:"วางบนโต๊ะ"}},
+  {h:"拿",p:"ná",m:"หยิบ/ถือ",c:"กริยา",ex:{cn:"拿书来。",pin:"Ná shū lái.",th:"หยิบหนังสือมา"}},
+  {h:"给",p:"gěi",m:"ให้",c:"กริยา",ex:{cn:"给我一本书。",pin:"Gěi wǒ yī běn shū.",th:"ให้หนังสือฉันหนึ่งเล่ม"}},
+  {h:"找",p:"zhǎo",m:"หา/ค้นหา",c:"กริยา",ex:{cn:"我在找钥匙。",pin:"Wǒ zài zhǎo yàoshi.",th:"ฉันกำลังหากุญแจ"}},
+  {h:"看见",p:"kànjiàn",m:"มองเห็น",c:"กริยา",ex:{cn:"我看见他了。",pin:"Wǒ kànjiàn tā le.",th:"ฉันเห็นเขาแล้ว"}},
+  {h:"听见",p:"tīngjiàn",m:"ได้ยิน",c:"กริยา",ex:{cn:"我听见了。",pin:"Wǒ tīngjiàn le.",th:"ฉันได้ยินแล้ว"}},
+  {h:"穿",p:"chuān",m:"สวมใส่",c:"กริยา",ex:{cn:"穿衣服出去。",pin:"Chuān yīfu chūqù.",th:"สวมเสื้อผ้าออกไป"}},
+  {h:"洗",p:"xǐ",m:"ล้าง/ซัก",c:"กริยา",ex:{cn:"饭前洗手。",pin:"Fàn qián xǐ shǒu.",th:"ล้างมือก่อนกินข้าว"}},
+  {h:"做",p:"zuò",m:"ทำ",c:"กริยา",ex:{cn:"做作业。",pin:"Zuò zuòyè.",th:"ทำการบ้าน"}},
+  {h:"玩",p:"wán",m:"เล่น",c:"กริยา",ex:{cn:"和朋友玩游戏。",pin:"Hé péngyou wán yóuxì.",th:"เล่นเกมกับเพื่อน"}},
+  {h:"唱",p:"chàng",m:"ร้องเพลง",c:"กริยา",ex:{cn:"唱歌给我听。",pin:"Chàng gē gěi wǒ tīng.",th:"ร้องเพลงให้ฉันฟัง"}},
+  {h:"跳",p:"tiào",m:"กระโดด/เต้น",c:"กริยา",ex:{cn:"跳舞很开心。",pin:"Tiào wǔ hěn kāixīn.",th:"เต้นรำสนุกมาก"}},
+  {h:"锻炼",p:"duànliàn",m:"ออกกำลังกาย",c:"กริยา",ex:{cn:"每天锻炼身体。",pin:"Měitiān duànliàn shēntǐ.",th:"ออกกำลังกายทุกวัน"}},
+  {h:"休息",p:"xiūxi",m:"พักผ่อน",c:"กริยา",ex:{cn:"好好休息一下。",pin:"Hǎohǎo xiūxi yīxià.",th:"พักผ่อนให้ดีๆ สักครู่"}},
+  {h:"生病",p:"shēngbìng",m:"ป่วย",c:"กริยา",ex:{cn:"他生病了。",pin:"Tā shēngbìng le.",th:"เขาป่วยแล้ว"}},
+  {h:"看病",p:"kànbìng",m:"ไปหาหมอ",c:"กริยา",ex:{cn:"去医院看病。",pin:"Qù yīyuàn kàn bìng.",th:"ไปโรงพยาบาลหาหมอ"}},
+  {h:"介绍",p:"jièshào",m:"แนะนำ",c:"กริยา",ex:{cn:"自我介绍一下。",pin:"Zìwǒ jièshào yīxià.",th:"แนะนำตัวเองหน่อย"}},
+  {h:"回答",p:"huídá",m:"ตอบ",c:"กริยา",ex:{cn:"请回答问题。",pin:"Qǐng huídá wèntí.",th:"กรุณาตอบคำถาม"}},
+  {h:"上课",p:"shàng kè",m:"เข้าชั้นเรียน",c:"กริยา",ex:{cn:"八点上课。",pin:"Bā diǎn shàng kè.",th:"แปดโมงเข้าเรียน"}},
+  {h:"下课",p:"xià kè",m:"เลิกเรียน",c:"กริยา",ex:{cn:"几点下课？",pin:"Jǐ diǎn xià kè?",th:"เลิกเรียนกี่โมง?"}},
+  {h:"考试",p:"kǎoshì",m:"สอบ",c:"กริยา",ex:{cn:"明天考试要加油。",pin:"Míngtiān kǎoshì yào jiāyóu.",th:"พรุ่งนี้สอบต้องสู้ๆ"}},
+  {h:"旅游",p:"lǚyóu",m:"ท่องเที่ยว",c:"กริยา",ex:{cn:"去中国旅游。",pin:"Qù Zhōngguó lǚyóu.",th:"ไปท่องเที่ยวจีน"}},
+  {h:"游泳",p:"yóuyǒng",m:"ว่ายน้ำ",c:"กริยา",ex:{cn:"我喜欢游泳。",pin:"Wǒ xǐhuan yóuyǒng.",th:"ฉันชอบว่ายน้ำ"}},
+  {h:"爬山",p:"pá shān",m:"ปีนเขา",c:"กริยา",ex:{cn:"周末去爬山。",pin:"Zhōumò qù pá shān.",th:"วันหยุดไปปีนเขา"}},
+  {h:"打篮球",p:"dǎ lánqiú",m:"เล่นบาสเกตบอล",c:"กริยา",ex:{cn:"我们去打篮球吧。",pin:"Wǒmen qù dǎ lánqiú ba.",th:"เราไปเล่นบาสกันเถอะ"}},
+  {h:"踢足球",p:"tī zúqiú",m:"เล่นฟุตบอล",c:"กริยา",ex:{cn:"踢足球出汗。",pin:"Tī zúqiú chū hàn.",th:"เล่นฟุตบอลเหงื่อออก"}},
+  {h:"打算",p:"dǎsuàn",m:"วางแผน/ตั้งใจ",c:"กริยา",ex:{cn:"我打算去北京。",pin:"Wǒ dǎsuàn qù Běijīng.",th:"ฉันวางแผนจะไปปักกิ่ง"}},
+  {h:"希望",p:"xīwàng",m:"หวัง/ต้องการ",c:"กริยา",ex:{cn:"我希望你身体好。",pin:"Wǒ xīwàng nǐ shēntǐ hǎo.",th:"ฉันหวังว่าคุณจะแข็งแรง"}},
+  {h:"决定",p:"juédìng",m:"ตัดสินใจ",c:"กริยา",ex:{cn:"我决定学汉语。",pin:"Wǒ juédìng xué Hànyǔ.",th:"ฉันตัดสินใจเรียนภาษาจีน"}},
+  {h:"借",p:"jiè",m:"ยืม",c:"กริยา",ex:{cn:"借一本书。",pin:"Jiè yī běn shū.",th:"ยืมหนังสือหนึ่งเล่ม"}},
+  {h:"还",p:"huán",m:"คืน",c:"กริยา",ex:{cn:"还书了。",pin:"Huán shū le.",th:"คืนหนังสือแล้ว"}},
+  {h:"付钱",p:"fù qián",m:"จ่ายเงิน",c:"กริยา",ex:{cn:"去付钱。",pin:"Qù fù qián.",th:"ไปจ่ายเงิน"}},
+  {h:"换",p:"huàn",m:"เปลี่ยน/แลก",c:"กริยา",ex:{cn:"换钱去旅游。",pin:"Huàn qián qù lǚyóu.",th:"แลกเงินไปท่องเที่ยว"}},
+  {h:"带",p:"dài",m:"พา/พกพา",c:"กริยา",ex:{cn:"带雨伞出去。",pin:"Dài yǔsǎn chūqù.",th:"พกร่มออกไป"}},
+  {h:"送",p:"sòng",m:"ส่ง/มอบให้",c:"กริยา",ex:{cn:"送礼物给朋友。",pin:"Sòng lǐwù gěi péngyou.",th:"ให้ของขวัญเพื่อน"}},
+  {h:"接",p:"jiē",m:"รับ",c:"กริยา",ex:{cn:"接电话。",pin:"Jiē diànhuà.",th:"รับโทรศัพท์"}},
+  {h:"忘",p:"wàng",m:"ลืม",c:"กริยา",ex:{cn:"我忘带钥匙了。",pin:"Wǒ wàng dài yàoshi le.",th:"ฉันลืมพากุญแจ"}},
+  {h:"记得",p:"jìde",m:"จำได้",c:"กริยา",ex:{cn:"你记得他吗？",pin:"Nǐ jìde tā ma?",th:"คุณจำเขาได้ไหม?"}},
+  {h:"准备",p:"zhǔnbèi",m:"เตรียม",c:"กริยา",ex:{cn:"准备好了吗？",pin:"Zhǔnbèi hǎo le ma?",th:"เตรียมพร้อมหรือยัง?"}},
+  {h:"开始",p:"kāishǐ",m:"เริ่ม",c:"กริยา",ex:{cn:"开始上课了。",pin:"Kāishǐ shàng kè le.",th:"เริ่มเรียนแล้ว"}},
+  {h:"结束",p:"jiéshù",m:"จบ/สิ้นสุด",c:"กริยา",ex:{cn:"课结束了。",pin:"Kè jiéshù le.",th:"เรียนจบแล้ว"}},
+  {h:"明白",p:"míngbai",m:"เข้าใจ",c:"กริยา",ex:{cn:"明白了吗？",pin:"Míngbai le ma?",th:"เข้าใจแล้วหรือยัง?"}},
+  {h:"理解",p:"lǐjiě",m:"เข้าใจ/ทำความเข้าใจ",c:"กริยา",ex:{cn:"我理解你的意思。",pin:"Wǒ lǐjiě nǐ de yìsi.",th:"ฉันเข้าใจความหมายของคุณ"}},
+  {h:"注意",p:"zhùyì",m:"ระวัง/สนใจ",c:"กริยา",ex:{cn:"注意安全。",pin:"Zhùyì ānquán.",th:"ระวังความปลอดภัย"}},
+  {h:"练习",p:"liànxí",m:"ฝึกหัด",c:"กริยา",ex:{cn:"练习写汉字。",pin:"Liànxí xiě Hànzì.",th:"ฝึกเขียนอักษรจีน"}},
+  {h:"复习",p:"fùxí",m:"ทบทวน",c:"กริยา",ex:{cn:"复习功课。",pin:"Fùxí gōngkè.",th:"ทบทวนบทเรียน"}},
+  {h:"散步",p:"sàn bù",m:"เดินเล่น",c:"กริยา",ex:{cn:"饭后散步。",pin:"Fàn hòu sàn bù.",th:"เดินเล่นหลังกินข้าว"}},
+  {h:"拍照",p:"pāi zhào",m:"ถ่ายรูป",c:"กริยา",ex:{cn:"一起拍照留念。",pin:"Yīqǐ pāi zhào liú niàn.",th:"ถ่ายรูปด้วยกันไว้เป็นที่ระลึก"}},
+  {h:"点菜",p:"diǎn cài",m:"สั่งอาหาร",c:"กริยา",ex:{cn:"服务员，来点菜。",pin:"Fúwùyuán, lái diǎn cài.",th:"พนักงาน มาสั่งอาหาร"}},
+  // ── คุณศัพท์ (46) ──
+  {h:"好",p:"hǎo",m:"ดี",c:"คุณศัพท์",ex:{cn:"今天天气很好。",pin:"Jīntiān tiānqì hěn hǎo.",th:"วันนี้อากาศดีมาก"}},
+  {h:"坏",p:"huài",m:"แย่/เสีย",c:"คุณศัพท์",ex:{cn:"天气很坏。",pin:"Tiānqì hěn huài.",th:"อากาศแย่มาก"}},
+  {h:"大",p:"dà",m:"ใหญ่",c:"คุณศัพท์",ex:{cn:"北京很大。",pin:"Běijīng hěn dà.",th:"ปักกิ่งใหญ่มาก"}},
+  {h:"小",p:"xiǎo",m:"เล็ก",c:"คุณศัพท์",ex:{cn:"这只猫很小。",pin:"Zhè zhī māo hěn xiǎo.",th:"แมวตัวนี้เล็กมาก"}},
+  {h:"多",p:"duō",m:"มาก",c:"คุณศัพท์",ex:{cn:"人很多。",pin:"Rén hěn duō.",th:"คนเยอะมาก"}},
+  {h:"少",p:"shǎo",m:"น้อย",c:"คุณศัพท์",ex:{cn:"钱太少了。",pin:"Qián tài shǎo le.",th:"เงินน้อยเกินไป"}},
+  {h:"高",p:"gāo",m:"สูง",c:"คุณศัพท์",ex:{cn:"他很高。",pin:"Tā hěn gāo.",th:"เขาสูงมาก"}},
+  {h:"矮",p:"ǎi",m:"เตี้ย",c:"คุณศัพท์",ex:{cn:"她很矮。",pin:"Tā hěn ǎi.",th:"เธอเตี้ยมาก"}},
+  {h:"长",p:"cháng",m:"ยาว",c:"คุณศัพท์",ex:{cn:"这条路很长。",pin:"Zhè tiáo lù hěn cháng.",th:"ถนนสายนี้ยาวมาก"}},
+  {h:"短",p:"duǎn",m:"สั้น",c:"คุณศัพท์",ex:{cn:"她的头发很短。",pin:"Tā de tóufa hěn duǎn.",th:"ผมของเธอสั้นมาก"}},
+  {h:"远",p:"yuǎn",m:"ไกล",c:"คุณศัพท์",ex:{cn:"学校很远。",pin:"Xuéxiào hěn yuǎn.",th:"โรงเรียนอยู่ไกลมาก"}},
+  {h:"近",p:"jìn",m:"ใกล้",c:"คุณศัพท์",ex:{cn:"学校很近。",pin:"Xuéxiào hěn jìn.",th:"โรงเรียนอยู่ใกล้มาก"}},
+  {h:"快",p:"kuài",m:"เร็ว",c:"คุณศัพท์",ex:{cn:"他走得很快。",pin:"Tā zǒu de hěn kuài.",th:"เขาเดินเร็วมาก"}},
+  {h:"慢",p:"màn",m:"ช้า",c:"คุณศัพท์",ex:{cn:"说慢一点。",pin:"Shuō màn yīdiǎn.",th:"พูดช้าๆ หน่อย"}},
+  {h:"冷",p:"lěng",m:"หนาว",c:"คุณศัพท์",ex:{cn:"今天很冷。",pin:"Jīntiān hěn lěng.",th:"วันนี้หนาวมาก"}},
+  {h:"热",p:"rè",m:"ร้อน",c:"คุณศัพท์",ex:{cn:"天气很热。",pin:"Tiānqì hěn rè.",th:"อากาศร้อนมาก"}},
+  {h:"凉快",p:"liángkuai",m:"เย็นสบาย",c:"คุณศัพท์",ex:{cn:"今天很凉快。",pin:"Jīntiān hěn liángkuai.",th:"วันนี้เย็นสบาย"}},
+  {h:"暖和",p:"nuǎnhuo",m:"อบอุ่น",c:"คุณศัพท์",ex:{cn:"春天很暖和。",pin:"Chūntiān hěn nuǎnhuo.",th:"ฤดูใบไม้ผลิอบอุ่น"}},
+  {h:"忙",p:"máng",m:"ยุ่ง",c:"คุณศัพท์",ex:{cn:"我很忙。",pin:"Wǒ hěn máng.",th:"ฉันยุ่งมาก"}},
+  {h:"累",p:"lèi",m:"เหนื่อย",c:"คุณศัพท์",ex:{cn:"工作了一天很累。",pin:"Gōngzuò le yī tiān hěn lèi.",th:"ทำงานมาหนึ่งวันเหนื่อยมาก"}},
+  {h:"高兴",p:"gāoxìng",m:"มีความสุข/ดีใจ",c:"คุณศัพท์",ex:{cn:"见到你很高兴。",pin:"Jiàn dào nǐ hěn gāoxìng.",th:"ดีใจที่ได้เจอคุณ"}},
+  {h:"难过",p:"nánguò",m:"เศร้า/ทุกข์ใจ",c:"คุณศัพท์",ex:{cn:"他很难过。",pin:"Tā hěn nánguò.",th:"เขาเศร้ามาก"}},
+  {h:"生气",p:"shēngqì",m:"โกรธ",c:"คุณศัพท์",ex:{cn:"他很生气。",pin:"Tā hěn shēngqì.",th:"เขาโกรธมาก"}},
+  {h:"害怕",p:"hàipà",m:"กลัว",c:"คุณศัพท์",ex:{cn:"我很害怕。",pin:"Wǒ hěn hàipà.",th:"ฉันกลัวมาก"}},
+  {h:"漂亮",p:"piàoliang",m:"สวย",c:"คุณศัพท์",ex:{cn:"她很漂亮。",pin:"Tā hěn piàoliang.",th:"เธอสวยมาก"}},
+  {h:"帅",p:"shuài",m:"หล่อ",c:"คุณศัพท์",ex:{cn:"他很帅。",pin:"Tā hěn shuài.",th:"เขาหล่อมาก"}},
+  {h:"可爱",p:"kě'ài",m:"น่ารัก",c:"คุณศัพท์",ex:{cn:"孩子很可爱。",pin:"Háizi hěn kě'ài.",th:"เด็กน่ารักมาก"}},
+  {h:"贵",p:"guì",m:"แพง",c:"คุณศัพท์",ex:{cn:"太贵了！",pin:"Tài guì le!",th:"แพงเกินไป!"}},
+  {h:"便宜",p:"piányí",m:"ถูก (ราคา)",c:"คุณศัพท์",ex:{cn:"这件衣服很便宜。",pin:"Zhè jiàn yīfu hěn piányí.",th:"เสื้อผ้าชิ้นนี้ถูกมาก"}},
+  {h:"新",p:"xīn",m:"ใหม่",c:"คุณศัพท์",ex:{cn:"新书买来了。",pin:"Xīn shū mǎi lái le.",th:"ซื้อหนังสือใหม่มาแล้ว"}},
+  {h:"旧",p:"jiù",m:"เก่า",c:"คุณศัพท์",ex:{cn:"旧衣服扔掉了。",pin:"Jiù yīfu rēng diào le.",th:"โยนเสื้อผ้าเก่าทิ้งแล้ว"}},
+  {h:"干净",p:"gānjìng",m:"สะอาด",c:"คุณศัพท์",ex:{cn:"房间很干净。",pin:"Fángjiān hěn gānjìng.",th:"ห้องสะอาดมาก"}},
+  {h:"脏",p:"zāng",m:"สกปรก",c:"คุณศัพท์",ex:{cn:"衣服脏了。",pin:"Yīfu zāng le.",th:"เสื้อผ้าสกปรกแล้ว"}},
+  {h:"难",p:"nán",m:"ยาก",c:"คุณศัพท์",ex:{cn:"这道题很难。",pin:"Zhè dào tí hěn nán.",th:"โจทย์นี้ยากมาก"}},
+  {h:"容易",p:"róngyì",m:"ง่าย",c:"คุณศัพท์",ex:{cn:"这题很容易。",pin:"Zhè tí hěn róngyì.",th:"โจทย์นี้ง่ายมาก"}},
+  {h:"有意思",p:"yǒu yìsi",m:"น่าสนใจ",c:"คุณศัพท์",ex:{cn:"这本书很有意思。",pin:"Zhè běn shū hěn yǒu yìsi.",th:"หนังสือเล่มนี้น่าสนใจมาก"}},
+  {h:"没意思",p:"méi yìsi",m:"น่าเบื่อ",c:"คุณศัพท์",ex:{cn:"这个游戏没意思。",pin:"Zhège yóuxì méi yìsi.",th:"เกมนี้น่าเบื่อ"}},
+  {h:"聪明",p:"cōngming",m:"ฉลาด",c:"คุณศัพท์",ex:{cn:"他很聪明。",pin:"Tā hěn cōngming.",th:"เขาฉลาดมาก"}},
+  {h:"努力",p:"nǔlì",m:"ขยัน/พยายาม",c:"คุณศัพท์",ex:{cn:"很努力地学习。",pin:"Hěn nǔlì de xuéxí.",th:"เรียนอย่างขยันขันแข็ง"}},
+  {h:"健康",p:"jiànkāng",m:"แข็งแรง/สุขภาพดี",c:"คุณศัพท์",ex:{cn:"身体很健康。",pin:"Shēntǐ hěn jiànkāng.",th:"ร่างกายแข็งแรงมาก"}},
+  {h:"安全",p:"ānquán",m:"ปลอดภัย",c:"คุณศัพท์",ex:{cn:"这里很安全。",pin:"Zhèlǐ hěn ānquán.",th:"ที่นี่ปลอดภัยมาก"}},
+  {h:"正确",p:"zhèngquè",m:"ถูกต้อง",c:"คุณศัพท์",ex:{cn:"答案是正确的。",pin:"Dá'àn shì zhèngquè de.",th:"คำตอบถูกต้อง"}},
+  {h:"错误",p:"cuòwù",m:"ผิดพลาด",c:"คุณศัพท์",ex:{cn:"这个是错误的。",pin:"Zhège shì cuòwù de.",th:"อันนี้ผิดพลาด"}},
+  {h:"重要",p:"zhòngyào",m:"สำคัญ",c:"คุณศัพท์",ex:{cn:"这个很重要。",pin:"Zhège hěn zhòngyào.",th:"อันนี้สำคัญมาก"}},
+  {h:"有名",p:"yǒumíng",m:"มีชื่อเสียง",c:"คุณศัพท์",ex:{cn:"他很有名。",pin:"Tā hěn yǒumíng.",th:"เขามีชื่อเสียงมาก"}},
+  {h:"方便",p:"fāngbiàn",m:"สะดวก",c:"คุณศัพท์",ex:{cn:"坐地铁很方便。",pin:"Zuò dìtiě hěn fāngbiàn.",th:"นั่งรถไฟใต้ดินสะดวกมาก"}},
+  // ── คำวิเศษณ์ (22) ──
+  {h:"不",p:"bù",m:"ไม่",c:"คำวิเศษณ์",ex:{cn:"我不去了。",pin:"Wǒ bù qù le.",th:"ฉันไม่ไปแล้ว"}},
+  {h:"没",p:"méi",m:"ไม่มี/ไม่ได้",c:"คำวิเศษณ์",ex:{cn:"我没有钱。",pin:"Wǒ méi yǒu qián.",th:"ฉันไม่มีเงิน"}},
+  {h:"很",p:"hěn",m:"มาก",c:"คำวิเศษณ์",ex:{cn:"我很好。",pin:"Wǒ hěn hǎo.",th:"ฉันดีมาก"}},
+  {h:"非常",p:"fēicháng",m:"มากๆ/อย่างยิ่ง",c:"คำวิเศษณ์",ex:{cn:"非常好！",pin:"Fēicháng hǎo!",th:"ดีมากๆ เลย!"}},
+  {h:"特别",p:"tèbié",m:"พิเศษ/โดยเฉพาะ",c:"คำวิเศษณ์",ex:{cn:"特别好吃。",pin:"Tèbié hǎochī.",th:"อร่อยเป็นพิเศษ"}},
+  {h:"也",p:"yě",m:"ก็/ด้วย",c:"คำวิเศษณ์",ex:{cn:"我也喜欢。",pin:"Wǒ yě xǐhuan.",th:"ฉันก็ชอบด้วย"}},
+  {h:"都",p:"dōu",m:"ทั้งหมด/ล้วน",c:"คำวิเศษณ์",ex:{cn:"我们都来了。",pin:"Wǒmen dōu lái le.",th:"พวกเรามาทุกคนแล้ว"}},
+  {h:"太",p:"tài",m:"ยิ่งเกินไป",c:"คำวิเศษณ์",ex:{cn:"太好了！",pin:"Tài hǎo le!",th:"ดีมากเลย!"}},
+  {h:"再",p:"zài",m:"อีกครั้ง/อีก",c:"คำวิเศษณ์",ex:{cn:"再说一遍。",pin:"Zài shuō yī biàn.",th:"พูดอีกครั้งหนึ่ง"}},
+  {h:"还",p:"hái",m:"ยังคง/อีก",c:"คำวิเศษณ์",ex:{cn:"还有吗？",pin:"Hái yǒu ma?",th:"ยังมีอีกไหม?"}},
+  {h:"就",p:"jiù",m:"ก็/แล้วก็",c:"คำวิเศษณ์",ex:{cn:"我就去了。",pin:"Wǒ jiù qù le.",th:"ฉันก็ไปแล้ว"}},
+  {h:"才",p:"cái",m:"เพิ่ง/แค่",c:"คำวิเศษณ์",ex:{cn:"我才来。",pin:"Wǒ cái lái.",th:"ฉันเพิ่งมา"}},
+  {h:"已经",p:"yǐjīng",m:"แล้ว/เรียบร้อยแล้ว",c:"คำวิเศษณ์",ex:{cn:"我已经吃了。",pin:"Wǒ yǐjīng chī le.",th:"ฉันกินแล้ว"}},
+  {h:"一起",p:"yīqǐ",m:"ด้วยกัน",c:"คำวิเศษณ์",ex:{cn:"一起去吧。",pin:"Yīqǐ qù ba.",th:"ไปด้วยกันเถอะ"}},
+  {h:"一定",p:"yīdìng",m:"แน่นอน/ต้อง",c:"คำวิเศษณ์",ex:{cn:"我一定去。",pin:"Wǒ yīdìng qù.",th:"ฉันจะไปแน่นอน"}},
+  {h:"可能",p:"kěnéng",m:"อาจจะ",c:"คำวิเศษณ์",ex:{cn:"可能下雨。",pin:"Kěnéng xià yǔ.",th:"อาจจะฝนตก"}},
+  {h:"真",p:"zhēn",m:"จริงๆ",c:"คำวิเศษณ์",ex:{cn:"真的吗？",pin:"Zhēn de ma?",th:"จริงๆ เหรอ?"}},
+  {h:"一点儿",p:"yīdiǎnr",m:"นิดหน่อย",c:"คำวิเศษณ์",ex:{cn:"说慢一点儿。",pin:"Shuō màn yīdiǎnr.",th:"พูดช้าๆ หน่อย"}},
+  {h:"有点儿",p:"yǒudiǎnr",m:"ค่อนข้าง/นิดหน่อย",c:"คำวิเศษณ์",ex:{cn:"有点儿冷。",pin:"Yǒudiǎnr lěng.",th:"หนาวนิดหน่อย"}},
+  {h:"一共",p:"yīgòng",m:"รวมทั้งหมด",c:"คำวิเศษณ์",ex:{cn:"一共多少钱？",pin:"Yīgòng duōshao qián?",th:"รวมทั้งหมดเท่าไร?"}},
+  {h:"最",p:"zuì",m:"ที่สุด",c:"คำวิเศษณ์",ex:{cn:"我最喜欢吃饺子。",pin:"Wǒ zuì xǐhuan chī jiǎozi.",th:"ฉันชอบกินเกี๊ยวที่สุด"}},
+  {h:"比较",p:"bǐjiào",m:"ค่อนข้าง/เปรียบเทียบ",c:"คำวิเศษณ์",ex:{cn:"比较难。",pin:"Bǐjiào nán.",th:"ค่อนข้างยาก"}},
+  // ── คำอนุภาค (9) ──
+  {h:"吗",p:"ma",m:"ไหม? (คำถาม)",c:"คำอนุภาค",ex:{cn:"你好吗？",pin:"Nǐ hǎo ma?",th:"คุณสบายดีไหม?"}},
+  {h:"呢",p:"ne",m:"ล่ะ? แล้ว...ล่ะ?",c:"คำอนุภาค",ex:{cn:"你呢？",pin:"Nǐ ne?",th:"แล้วคุณล่ะ?"}},
+  {h:"吧",p:"ba",m:"นะ/ใช่ไหม",c:"คำอนุภาค",ex:{cn:"走吧！",pin:"Zǒu ba!",th:"ไปกันเถอะนะ!"}},
+  {h:"了",p:"le",m:"แล้ว (เสร็จสิ้น)",c:"คำอนุภาค",ex:{cn:"我吃饭了。",pin:"Wǒ chī fàn le.",th:"ฉันกินข้าวแล้ว"}},
+  {h:"的",p:"de",m:"ของ/ที่ (เชื่อม)",c:"คำอนุภาค",ex:{cn:"我的书。",pin:"Wǒ de shū.",th:"หนังสือของฉัน"}},
+  {h:"地",p:"de",m:"อย่าง... (ขยายกริยา)",c:"คำอนุภาค",ex:{cn:"努力地学习。",pin:"Nǔlì de xuéxí.",th:"เรียนอย่างขยัน"}},
+  {h:"得",p:"de",m:"ได้ (ประเมินผล)",c:"คำอนุภาค",ex:{cn:"跑得很快。",pin:"Pǎo de hěn kuài.",th:"วิ่งได้เร็วมาก"}},
+  {h:"过",p:"guò",m:"เคย (ประสบการณ์)",c:"คำอนุภาค",ex:{cn:"我去过北京。",pin:"Wǒ qù guò Běijīng.",th:"ฉันเคยไปปักกิ่ง"}},
+  {h:"着",p:"zhe",m:"กำลัง...อยู่",c:"คำอนุภาค",ex:{cn:"他站着说话。",pin:"Tā zhànzhe shuōhuà.",th:"เขายืนพูดอยู่"}},
+  // ── สิ่งของ (24) ──
+  {h:"书",p:"shū",m:"หนังสือ",c:"สิ่งของ",ex:{cn:"看书学汉语。",pin:"Kàn shū xué Hànyǔ.",th:"อ่านหนังสือเรียนภาษาจีน"}},
+  {h:"电脑",p:"diànnǎo",m:"คอมพิวเตอร์",c:"สิ่งของ",ex:{cn:"用电脑工作。",pin:"Yòng diànnǎo gōngzuò.",th:"ใช้คอมพิวเตอร์ทำงาน"}},
+  {h:"手机",p:"shǒujī",m:"โทรศัพท์มือถือ",c:"สิ่งของ",ex:{cn:"用手机打电话。",pin:"Yòng shǒujī dǎ diànhuà.",th:"ใช้มือถือโทร"}},
+  {h:"电视",p:"diànshì",m:"โทรทัศน์",c:"สิ่งของ",ex:{cn:"看电视看新闻。",pin:"Kàn diànshì kàn xīnwén.",th:"ดูโทรทัศน์ดูข่าว"}},
+  {h:"电话",p:"diànhuà",m:"โทรศัพท์",c:"สิ่งของ",ex:{cn:"接电话。",pin:"Jiē diànhuà.",th:"รับโทรศัพท์"}},
+  {h:"钱",p:"qián",m:"เงิน",c:"สิ่งของ",ex:{cn:"多少钱？",pin:"Duōshao qián?",th:"ราคาเท่าไร?"}},
+  {h:"东西",p:"dōngxi",m:"สิ่งของ",c:"สิ่งของ",ex:{cn:"买东西回来了。",pin:"Mǎi dōngxi huílái le.",th:"ซื้อของกลับมาแล้ว"}},
+  {h:"桌子",p:"zhuōzi",m:"โต๊ะ",c:"สิ่งของ",ex:{cn:"书放在桌子上。",pin:"Shū fàng zài zhuōzi shàng.",th:"หนังสือวางบนโต๊ะ"}},
+  {h:"椅子",p:"yǐzi",m:"เก้าอี้",c:"สิ่งของ",ex:{cn:"请坐椅子。",pin:"Qǐng zuò yǐzi.",th:"กรุณานั่งเก้าอี้"}},
+  {h:"床",p:"chuáng",m:"เตียง",c:"สิ่งของ",ex:{cn:"睡在床上。",pin:"Shuì zài chuáng shàng.",th:"นอนบนเตียง"}},
+  {h:"衣服",p:"yīfu",m:"เสื้อผ้า",c:"สิ่งของ",ex:{cn:"穿衣服出去。",pin:"Chuān yīfu chūqù.",th:"สวมเสื้อผ้าออกไป"}},
+  {h:"裤子",p:"kùzi",m:"กางเกง",c:"สิ่งของ",ex:{cn:"穿裤子。",pin:"Chuān kùzi.",th:"สวมกางเกง"}},
+  {h:"鞋",p:"xié",m:"รองเท้า",c:"สิ่งของ",ex:{cn:"穿鞋。",pin:"Chuān xié.",th:"สวมรองเท้า"}},
+  {h:"包",p:"bāo",m:"กระเป๋า",c:"สิ่งของ",ex:{cn:"这个包很好看。",pin:"Zhège bāo hěn hǎokàn.",th:"กระเป๋าใบนี้สวยมาก"}},
+  {h:"票",p:"piào",m:"ตั๋ว",c:"สิ่งของ",ex:{cn:"买火车票。",pin:"Mǎi huǒchē piào.",th:"ซื้อตั๋วรถไฟ"}},
+  {h:"照片",p:"zhàopiàn",m:"รูปถ่าย",c:"สิ่งของ",ex:{cn:"看照片想家。",pin:"Kàn zhàopiàn xiǎng jiā.",th:"ดูรูปถ่ายคิดถึงบ้าน"}},
+  {h:"礼物",p:"lǐwù",m:"ของขวัญ",c:"สิ่งของ",ex:{cn:"送礼物给朋友。",pin:"Sòng lǐwù gěi péngyou.",th:"ให้ของขวัญเพื่อน"}},
+  {h:"作业",p:"zuòyè",m:"การบ้าน",c:"สิ่งของ",ex:{cn:"做作业。",pin:"Zuò zuòyè.",th:"ทำการบ้าน"}},
+  {h:"问题",p:"wèntí",m:"ปัญหา/คำถาม",c:"สิ่งของ",ex:{cn:"有问题吗？",pin:"Yǒu wèntí ma?",th:"มีปัญหาไหม?"}},
+  {h:"成绩",p:"chéngjì",m:"ผลการเรียน",c:"สิ่งของ",ex:{cn:"成绩很好。",pin:"Chéngjì hěn hǎo.",th:"ผลการเรียนดีมาก"}},
+  {h:"地图",p:"dìtú",m:"แผนที่",c:"สิ่งของ",ex:{cn:"看地图找路。",pin:"Kàn dìtú zhǎo lù.",th:"ดูแผนที่หาทาง"}},
+  {h:"钥匙",p:"yàoshi",m:"กุญแจ",c:"สิ่งของ",ex:{cn:"找钥匙。",pin:"Zhǎo yàoshi.",th:"หากุญแจ"}},
+  {h:"伞",p:"sǎn",m:"ร่ม",c:"สิ่งของ",ex:{cn:"带伞出去。",pin:"Dài sǎn chūqù.",th:"พกร่มออกไป"}},
+  {h:"眼镜",p:"yǎnjìng",m:"แว่นตา",c:"สิ่งของ",ex:{cn:"戴眼镜。",pin:"Dài yǎnjìng.",th:"ใส่แว่นตา"}},
+  // ── สี (10) ──
+  {h:"颜色",p:"yánsè",m:"สี",c:"สี",ex:{cn:"什么颜色？",pin:"Shénme yánsè?",th:"สีอะไร?"}},
+  {h:"红色",p:"hóngsè",m:"สีแดง",c:"สี",ex:{cn:"红色的花。",pin:"Hóngsè de huā.",th:"ดอกไม้สีแดง"}},
+  {h:"白色",p:"báisè",m:"สีขาว",c:"สี",ex:{cn:"白色的衣服。",pin:"Báisè de yīfu.",th:"เสื้อสีขาว"}},
+  {h:"黑色",p:"hēisè",m:"สีดำ",c:"สี",ex:{cn:"黑色的包。",pin:"Hēisè de bāo.",th:"กระเป๋าสีดำ"}},
+  {h:"蓝色",p:"lánsè",m:"สีน้ำเงิน",c:"สี",ex:{cn:"蓝色的天空。",pin:"Lánsè de tiānkōng.",th:"ท้องฟ้าสีน้ำเงิน"}},
+  {h:"绿色",p:"lǜsè",m:"สีเขียว",c:"สี",ex:{cn:"绿色的树叶。",pin:"Lǜsè de shùyè.",th:"ใบไม้สีเขียว"}},
+  {h:"黄色",p:"huángsè",m:"สีเหลือง",c:"สี",ex:{cn:"黄色的香蕉。",pin:"Huángsè de xiāngjiāo.",th:"กล้วยสีเหลือง"}},
+  {h:"粉色",p:"fěnsè",m:"สีชมพู",c:"สี",ex:{cn:"粉色的裙子。",pin:"Fěnsè de qúnzi.",th:"กระโปรงสีชมพู"}},
+  {h:"橙色",p:"chéngsè",m:"สีส้ม",c:"สี",ex:{cn:"橙色的橘子。",pin:"Chéngsè de júzi.",th:"ส้มสีส้ม"}},
+  {h:"紫色",p:"zǐsè",m:"สีม่วง",c:"สี",ex:{cn:"紫色的花。",pin:"Zǐsè de huā.",th:"ดอกไม้สีม่วง"}},
+  // ── ธรรมชาติ (17) ──
+  {h:"天气",p:"tiānqì",m:"อากาศ",c:"ธรรมชาติ",ex:{cn:"今天天气怎么样？",pin:"Jīntiān tiānqì zěnmeyàng?",th:"วันนี้อากาศเป็นอย่างไร?"}},
+  {h:"下雨",p:"xià yǔ",m:"ฝนตก",c:"ธรรมชาติ",ex:{cn:"下雨了，带伞。",pin:"Xià yǔ le, dài sǎn.",th:"ฝนตกแล้ว พกร่มไป"}},
+  {h:"下雪",p:"xià xuě",m:"หิมะตก",c:"ธรรมชาติ",ex:{cn:"冬天下雪了。",pin:"Dōngtiān xià xuě le.",th:"หน้าหนาวหิมะตกแล้ว"}},
+  {h:"刮风",p:"guā fēng",m:"ลมพัด",c:"ธรรมชาติ",ex:{cn:"今天刮风。",pin:"Jīntiān guā fēng.",th:"วันนี้ลมพัด"}},
+  {h:"太阳",p:"tàiyáng",m:"ดวงอาทิตย์",c:"ธรรมชาติ",ex:{cn:"太阳出来了。",pin:"Tàiyáng chūlái le.",th:"ดวงอาทิตย์ขึ้นแล้ว"}},
+  {h:"月亮",p:"yuèliang",m:"ดวงจันทร์",c:"ธรรมชาติ",ex:{cn:"月亮很亮。",pin:"Yuèliang hěn liàng.",th:"ดวงจันทร์สว่างมาก"}},
+  {h:"星星",p:"xīngxing",m:"ดาว",c:"ธรรมชาติ",ex:{cn:"天上有很多星星。",pin:"Tiān shàng yǒu hěn duō xīngxing.",th:"บนท้องฟ้ามีดาวเยอะมาก"}},
+  {h:"风",p:"fēng",m:"ลม",c:"ธรรมชาติ",ex:{cn:"今天风很大。",pin:"Jīntiān fēng hěn dà.",th:"วันนี้ลมแรงมาก"}},
+  {h:"雨",p:"yǔ",m:"ฝน",c:"ธรรมชาติ",ex:{cn:"下大雨了。",pin:"Xià dà yǔ le.",th:"ฝนตกหนักแล้ว"}},
+  {h:"雪",p:"xuě",m:"หิมะ",c:"ธรรมชาติ",ex:{cn:"雪很白。",pin:"Xuě hěn bái.",th:"หิมะขาวมาก"}},
+  {h:"云",p:"yún",m:"เมฆ",c:"ธรรมชาติ",ex:{cn:"天上有很多云。",pin:"Tiān shàng yǒu hěn duō yún.",th:"บนท้องฟ้ามีเมฆเยอะมาก"}},
+  {h:"山",p:"shān",m:"ภูเขา",c:"ธรรมชาติ",ex:{cn:"周末去爬山。",pin:"Zhōumò qù pá shān.",th:"วันหยุดไปปีนเขา"}},
+  {h:"河",p:"hé",m:"แม่น้ำ",c:"ธรรมชาติ",ex:{cn:"过河去对面。",pin:"Guò hé qù duìmiàn.",th:"ข้ามแม่น้ำไปอีกฝั่ง"}},
+  {h:"海",p:"hǎi",m:"ทะเล",c:"ธรรมชาติ",ex:{cn:"夏天去海边游泳。",pin:"Xiàtiān qù hǎibiān yóuyǒng.",th:"ฤดูร้อนไปว่ายน้ำทะเล"}},
+  {h:"树",p:"shù",m:"ต้นไม้",c:"ธรรมชาติ",ex:{cn:"树上有鸟。",pin:"Shù shàng yǒu niǎo.",th:"บนต้นไม้มีนก"}},
+  {h:"花",p:"huā",m:"ดอกไม้",c:"ธรรมชาติ",ex:{cn:"花很漂亮。",pin:"Huā hěn piàoliang.",th:"ดอกไม้สวยมาก"}},
+  {h:"草",p:"cǎo",m:"หญ้า",c:"ธรรมชาติ",ex:{cn:"草地很绿。",pin:"Cǎodì hěn lǜ.",th:"สนามหญ้าเขียวมาก"}},
+  // ── ร่างกาย (13) ──
+  {h:"眼睛",p:"yǎnjing",m:"ตา",c:"ร่างกาย",ex:{cn:"她的眼睛很大。",pin:"Tā de yǎnjing hěn dà.",th:"ตาของเธอใหญ่มาก"}},
+  {h:"耳朵",p:"ěrduo",m:"หู",c:"ร่างกาย",ex:{cn:"用耳朵听。",pin:"Yòng ěrduo tīng.",th:"ใช้หูฟัง"}},
+  {h:"鼻子",p:"bízi",m:"จมูก",c:"ร่างกาย",ex:{cn:"鼻子很大。",pin:"Bízi hěn dà.",th:"จมูกใหญ่มาก"}},
+  {h:"嘴",p:"zuǐ",m:"ปาก",c:"ร่างกาย",ex:{cn:"用嘴说话。",pin:"Yòng zuǐ shuōhuà.",th:"ใช้ปากพูด"}},
+  {h:"手",p:"shǒu",m:"มือ",c:"ร่างกาย",ex:{cn:"饭前洗手。",pin:"Fàn qián xǐ shǒu.",th:"ล้างมือก่อนกินข้าว"}},
+  {h:"脚",p:"jiǎo",m:"เท้า",c:"ร่างกาย",ex:{cn:"脚很痛。",pin:"Jiǎo hěn tòng.",th:"เท้าเจ็บมาก"}},
+  {h:"头",p:"tóu",m:"หัว",c:"ร่างกาย",ex:{cn:"头很痛。",pin:"Tóu hěn tòng.",th:"ปวดหัวมาก"}},
+  {h:"脸",p:"liǎn",m:"ใบหน้า",c:"ร่างกาย",ex:{cn:"洗脸。",pin:"Xǐ liǎn.",th:"ล้างหน้า"}},
+  {h:"头发",p:"tóufa",m:"ผม",c:"ร่างกาย",ex:{cn:"她的头发很长。",pin:"Tā de tóufa hěn cháng.",th:"ผมของเธอยาวมาก"}},
+  {h:"身体",p:"shēntǐ",m:"ร่างกาย",c:"ร่างกาย",ex:{cn:"注意身体健康。",pin:"Zhùyì shēntǐ jiànkāng.",th:"ดูแลสุขภาพด้วย"}},
+  {h:"心",p:"xīn",m:"หัวใจ/จิตใจ",c:"ร่างกาย",ex:{cn:"用心学习。",pin:"Yòng xīn xuéxí.",th:"เรียนด้วยใจ"}},
+  {h:"背",p:"bèi",m:"หลัง",c:"ร่างกาย",ex:{cn:"背很痛。",pin:"Bèi hěn tòng.",th:"ปวดหลังมาก"}},
+  {h:"腿",p:"tuǐ",m:"ขา",c:"ร่างกาย",ex:{cn:"腿很酸。",pin:"Tuǐ hěn suān.",th:"ขาเมื่อยมาก"}},
+  // ── ลักษณนาม (16) ──
+  {h:"个",p:"gè",m:"ลักษณนามทั่วไป",c:"ลักษณนาม",ex:{cn:"两个人来了。",pin:"Liǎng gè rén lái le.",th:"มาสองคนแล้ว"}},
+  {h:"本",p:"běn",m:"ลักษณนาม (หนังสือ)",c:"ลักษณนาม",ex:{cn:"借一本书。",pin:"Jiè yī běn shū.",th:"ยืมหนังสือหนึ่งเล่ม"}},
+  {h:"张",p:"zhāng",m:"ลักษณนาม (แผ่น)",c:"ลักษณนาม",ex:{cn:"一张纸。",pin:"Yī zhāng zhǐ.",th:"กระดาษหนึ่งแผ่น"}},
+  {h:"杯",p:"bēi",m:"ลักษณนาม (แก้ว)",c:"ลักษณนาม",ex:{cn:"喝一杯水。",pin:"Hē yī bēi shuǐ.",th:"ดื่มน้ำหนึ่งแก้ว"}},
+  {h:"些",p:"xiē",m:"บาง/จำนวนหนึ่ง",c:"ลักษณนาม",ex:{cn:"一些水果。",pin:"Yī xiē shuǐguǒ.",th:"ผลไม้จำนวนหนึ่ง"}},
+  {h:"只",p:"zhī",m:"ลักษณนาม (สัตว์)",c:"ลักษณนาม",ex:{cn:"一只猫。",pin:"Yī zhī māo.",th:"แมวหนึ่งตัว"}},
+  {h:"条",p:"tiáo",m:"ลักษณนาม (สิ่งยาว)",c:"ลักษณนาม",ex:{cn:"一条鱼。",pin:"Yī tiáo yú.",th:"ปลาหนึ่งตัว"}},
+  {h:"件",p:"jiàn",m:"ลักษณนาม (เสื้อ/เรื่อง)",c:"ลักษณนาม",ex:{cn:"一件衣服。",pin:"Yī jiàn yīfu.",th:"เสื้อผ้าหนึ่งชิ้น"}},
+  {h:"块",p:"kuài",m:"หยวน/ลักษณนามก้อน",c:"ลักษณนาม",ex:{cn:"十块钱。",pin:"Shí kuài qián.",th:"สิบหยวน"}},
+  {h:"次",p:"cì",m:"ครั้ง",c:"ลักษณนาม",ex:{cn:"去过一次。",pin:"Qù guò yī cì.",th:"เคยไปครั้งหนึ่ง"}},
+  {h:"位",p:"wèi",m:"ลักษณนามคน (สุภาพ)",c:"ลักษณนาม",ex:{cn:"这位老师。",pin:"Zhè wèi lǎoshī.",th:"คุณครูท่านนี้"}},
+  {h:"种",p:"zhǒng",m:"ชนิด/ประเภท",c:"ลักษณนาม",ex:{cn:"各种颜色。",pin:"Gè zhǒng yánsè.",th:"หลากหลายสี"}},
+  {h:"栋",p:"dòng",m:"ลักษณนาม (อาคาร)",c:"ลักษณนาม",ex:{cn:"一栋楼。",pin:"Yī dòng lóu.",th:"อาคารหนึ่งหลัง"}},
+  {h:"辆",p:"liàng",m:"ลักษณนาม (ยานพาหนะ)",c:"ลักษณนาม",ex:{cn:"一辆汽车。",pin:"Yī liàng qìchē.",th:"รถยนต์หนึ่งคัน"}},
+  {h:"套",p:"tào",m:"ลักษณนาม (ชุด)",c:"ลักษณนาม",ex:{cn:"一套衣服。",pin:"Yī tào yīfu.",th:"เสื้อผ้าหนึ่งชุด"}},
+  {h:"根",p:"gēn",m:"ลักษณนาม (สิ่งแท่งยาว)",c:"ลักษณนาม",ex:{cn:"一根香蕉。",pin:"Yī gēn xiāngjiāo.",th:"กล้วยหนึ่งลูก"}},
+  // ── ภาษา (10) ──
+  {h:"汉语",p:"Hànyǔ",m:"ภาษาจีน (พูด)",c:"ภาษา",ex:{cn:"我学习汉语。",pin:"Wǒ xuéxí Hànyǔ.",th:"ฉันเรียนภาษาจีน"}},
+  {h:"中文",p:"Zhōngwén",m:"ภาษาจีน (เขียน)",c:"ภาษา",ex:{cn:"你会说中文吗？",pin:"Nǐ huì shuō Zhōngwén ma?",th:"คุณพูดภาษาจีนได้ไหม?"}},
+  {h:"英语",p:"Yīngyǔ",m:"ภาษาอังกฤษ",c:"ภาษา",ex:{cn:"我在学英语。",pin:"Wǒ zài xué Yīngyǔ.",th:"ฉันกำลังเรียนภาษาอังกฤษ"}},
+  {h:"普通话",p:"Pǔtōnghuà",m:"ภาษาจีนกลาง",c:"ภาษา",ex:{cn:"说普通话。",pin:"Shuō Pǔtōnghuà.",th:"พูดภาษาจีนกลาง"}},
+  {h:"汉字",p:"Hànzì",m:"ตัวอักษรจีน",c:"ภาษา",ex:{cn:"写汉字。",pin:"Xiě Hànzì.",th:"เขียนอักษรจีน"}},
+  {h:"拼音",p:"pīnyīn",m:"พินอิน",c:"ภาษา",ex:{cn:"先学拼音。",pin:"Xiān xué pīnyīn.",th:"เรียนพินอินก่อน"}},
+  {h:"词",p:"cí",m:"คำ/คำศัพท์",c:"ภาษา",ex:{cn:"学新词。",pin:"Xué xīn cí.",th:"เรียนคำใหม่"}},
+  {h:"句子",p:"jùzi",m:"ประโยค",c:"ภาษา",ex:{cn:"写句子。",pin:"Xiě jùzi.",th:"เขียนประโยค"}},
+  {h:"课文",p:"kèwén",m:"บทเรียน",c:"ภาษา",ex:{cn:"读课文。",pin:"Dú kèwén.",th:"อ่านบทเรียน"}},
+  {h:"语法",p:"yǔfǎ",m:"ไวยากรณ์",c:"ภาษา",ex:{cn:"学语法。",pin:"Xué yǔfǎ.",th:"เรียนไวยากรณ์"}},
+  // ── ทั่วไป (23) ──
+  {h:"名字",p:"míngzi",m:"ชื่อ",c:"ทั่วไป",ex:{cn:"你叫什么名字？",pin:"Nǐ jiào shénme míngzi?",th:"คุณชื่ออะไร?"}},
+  {h:"岁",p:"suì",m:"ขวบ/ปี (อายุ)",c:"ทั่วไป",ex:{cn:"我二十岁了。",pin:"Wǒ èrshí suì le.",th:"ฉันอายุ 20 ปีแล้ว"}},
+  {h:"对",p:"duì",m:"ถูกต้อง/ใช่",c:"ทั่วไป",ex:{cn:"对，没错。",pin:"Duì, méi cuò.",th:"ถูกต้อง ไม่มีผิด"}},
+  {h:"和",p:"hé",m:"และ",c:"ทั่วไป",ex:{cn:"我和你一起去。",pin:"Wǒ hé nǐ yīqǐ qù.",th:"ฉันและคุณไปด้วยกัน"}},
+  {h:"跟",p:"gēn",m:"กับ/ตาม",c:"ทั่วไป",ex:{cn:"跟我来。",pin:"Gēn wǒ lái.",th:"ตามฉันมา"}},
+  {h:"但是",p:"dànshì",m:"แต่",c:"ทั่วไป",ex:{cn:"我想去，但是很忙。",pin:"Wǒ xiǎng qù, dànshì hěn máng.",th:"ฉันอยากไป แต่ยุ่งมาก"}},
+  {h:"因为",p:"yīnwèi",m:"เพราะ",c:"ทั่วไป",ex:{cn:"因为下雨，不出去。",pin:"Yīnwèi xià yǔ, bù chūqù.",th:"เพราะฝนตก เลยไม่ออกไป"}},
+  {h:"所以",p:"suǒyǐ",m:"ดังนั้น",c:"ทั่วไป",ex:{cn:"所以我不去了。",pin:"Suǒyǐ wǒ bù qù le.",th:"ดังนั้นฉันจึงไม่ไปแล้ว"}},
+  {h:"如果",p:"rúguǒ",m:"ถ้า/หาก",c:"ทั่วไป",ex:{cn:"如果下雨，不去。",pin:"Rúguǒ xià yǔ, bù qù.",th:"ถ้าฝนตก ไม่ไป"}},
+  {h:"虽然",p:"suīrán",m:"ถึงแม้ว่า",c:"ทั่วไป",ex:{cn:"虽然很忙，还是去了。",pin:"Suīrán hěn máng, háishi qù le.",th:"ถึงแม้จะยุ่ง แต่ก็ยังไป"}},
+  {h:"还是",p:"háishi",m:"หรือ (ในคำถาม)",c:"ทั่วไป",ex:{cn:"喝茶还是喝水？",pin:"Hē chá háishi hē shuǐ?",th:"ดื่มชาหรือดื่มน้ำ?"}},
+  {h:"或者",p:"huòzhě",m:"หรือ (ในข้อความ)",c:"ทั่วไป",ex:{cn:"你或者他去。",pin:"Nǐ huòzhě tā qù.",th:"คุณหรือเขาไป"}},
+  {h:"而且",p:"érqiě",m:"นอกจากนี้ยัง",c:"ทั่วไป",ex:{cn:"好看而且好吃。",pin:"Hǎokàn érqiě hǎochī.",th:"สวยและอร่อยด้วย"}},
+  {h:"地方",p:"dìfang",m:"สถานที่/แห่ง",c:"ทั่วไป",ex:{cn:"这个地方很美。",pin:"Zhège dìfang hěn měi.",th:"สถานที่นี้สวยมาก"}},
+  {h:"事情",p:"shìqing",m:"เรื่อง/เหตุการณ์",c:"ทั่วไป",ex:{cn:"什么事情？",pin:"Shénme shìqing?",th:"มีเรื่องอะไร?"}},
+  {h:"意思",p:"yìsi",m:"ความหมาย",c:"ทั่วไป",ex:{cn:"什么意思？",pin:"Shénme yìsi?",th:"หมายความว่าอะไร?"}},
+  {h:"方法",p:"fāngfǎ",m:"วิธีการ",c:"ทั่วไป",ex:{cn:"用什么方法？",pin:"Yòng shénme fāngfǎ?",th:"ใช้วิธีอะไร?"}},
+  {h:"原来",p:"yuánlái",m:"ที่แท้จริง/ปรากฏว่า",c:"ทั่วไป",ex:{cn:"原来是你！",pin:"Yuánlái shì nǐ!",th:"ที่แท้จริงก็คือคุณ!"}},
+  {h:"一样",p:"yīyàng",m:"เหมือนกัน",c:"ทั่วไป",ex:{cn:"我们一样高。",pin:"Wǒmen yīyàng gāo.",th:"เราสูงเท่ากัน"}},
+  {h:"号码",p:"hàomǎ",m:"หมายเลข",c:"ทั่วไป",ex:{cn:"电话号码是多少？",pin:"Diànhuà hàomǎ shì duōshao?",th:"หมายเลขโทรศัพท์คืออะไร?"}},
+  {h:"结果",p:"jiéguǒ",m:"ผลลัพธ์",c:"ทั่วไป",ex:{cn:"结果怎么样？",pin:"Jiéguǒ zěnmeyàng?",th:"ผลลัพธ์เป็นอย่างไร?"}},
+  {h:"情况",p:"qíngkuàng",m:"สถานการณ์",c:"ทั่วไป",ex:{cn:"情况怎么样？",pin:"Qíngkuàng zěnmeyàng?",th:"สถานการณ์เป็นอย่างไร?"}},
+  {h:"加油",p:"jiāyóu",m:"สู้ๆ/เติมแรง",c:"ทั่วไป",ex:{cn:"加油！你能行！",pin:"Jiāyóu! Nǐ néng xíng!",th:"สู้ๆ คุณทำได้!"}},
+];
+
+// Count check
+console.log('Total words:', W.length);
+
+/* ══ CATEGORY ICONS ══ */
+const CICONS={
+  "สรรพนาม":"👤","คำถาม":"❓","ตัวเลข":"🔢","เวลา":"⏰",
+  "คำทักทาย":"🙋","คน":"🧑","อาชีพ":"💼","ครอบครัว":"👨‍👩‍👧",
+  "สัตว์":"🐾","อาหาร":"🍜","สถานที่":"📍","การเดินทาง":"🚆",
+  "ทิศทาง":"🧭","กริยา":"⚡","คุณศัพท์":"✨","คำวิเศษณ์":"🔤",
+  "คำอนุภาค":"🔹","สิ่งของ":"📦","สี":"🎨","ธรรมชาติ":"🌿",
+  "ร่างกาย":"🫀","ลักษณนาม":"📐","ภาษา":"💬","ทั่วไป":"📝"
+};
+
+/* ══ NAV ══ */
+function goHome(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg-home').classList.add('on');
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',i===0));
+  document.getElementById('nStudy').style.display='none';
+  ud(); buildHome();
+}
+function gotoStudy(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pg-study').classList.add('on');
+}
+function os(mode){gotoStudy();document.getElementById('nStudy').style.display='';sm(mode);}
+function sm(m){
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.toggle('on',
+    t.textContent.trim().includes(m==='srs'?'SRS':m==='vocab'?'คำศัพท์':m==='flash'?'Flash':m==='quiz'?'Quiz':'Mock')
+  ));
+  ['SRS','Vocab','Flash','Quiz','Exam'].forEach(id=>{
+    document.getElementById('mode'+id).style.display=id.toLowerCase()===m?'':'none';
+  });
+  if(m==='srs')   renderSRS();
+  if(m==='vocab') rv();
+  if(m==='flash') initFC();
+  if(m==='quiz')  initQuiz();
+  if(m==='exam')  initExam();
+}
+
+/* ══ HOME BUILD ══ */
+function buildHome(){
+  ud();
+  const cg=document.getElementById('catGrid'); cg.innerHTML='';
+  const cats={};
+  W.forEach(v=>{if(!cats[v.c])cats[v.c]=0;cats[v.c]++;});
+  Object.entries(cats).forEach(([cat,cnt])=>{
+    const d=document.createElement('div');d.className='ccat';
+    d.innerHTML=`<div class="cic">${CICONS[cat]||'📌'}</div><div><div class="cname">${cat}</div><div class="cnt">${cnt} คำ</div></div>`;
+    d.onclick=()=>{os('vocab');document.getElementById('vs').value='';svf('all',document.getElementById('fAll'));filterByCat=cat;rv();};
+    cg.appendChild(d);
+  });
+  const chars=W.filter(v=>v.h.length===1).map(v=>v.h);
+  clearInterval(window._hi);
+  window._hi=setInterval(()=>{const el=document.getElementById('heroChar');if(el)el.textContent=chars[Math.floor(Math.random()*chars.length)];},2000);
+}
+
+/* ══ VOCAB ══ */
+let vf='all', filterByCat='';
+function rv(){
+  const q=(document.getElementById('vs').value||'').toLowerCase();
+  const filtered=W.filter(v=>{
+    const ok=!q||v.h.includes(q)||v.p.toLowerCase().includes(q)||v.m.includes(q);
+    if(!ok)return false;
+    if(filterByCat&&v.c!==filterByCat)return false;
+    if(vf==='lnd')return isL(v.h);
+    if(vf==='new')return!isL(v.h);
+    if(vf==='due')return isDue(v.h)&&SR[v.h];
+    return true;
+  });
+  document.getElementById('vcount').textContent=`แสดง ${filtered.length} / ${W.length} คำ`;
+  const grid=document.getElementById('vgrid');grid.innerHTML='';
+  filtered.forEach(v=>{
+    const d=document.createElement('div');
+    d.className='vc'+(isL(v.h)?' lnd':'');
+    const sh=v.h.replace(/'/g,"\\'");
+    d.innerHTML=`${isL(v.h)?'<div class="ldot"></div>':''}<div class="vh">${v.h}${getSrsB(v.h)}</div><div class="vp">${v.p}</div><div class="vm">${v.m}</div><div class="vtag">${v.c}</div><button class="vspk" onclick="event.stopPropagation();speak('${sh}')">🔊</button>`;
+    d.onclick=()=>openModal(v);
+    grid.appendChild(d);
+  });
+}
+function svf(f,btn){
+  vf=f;filterByCat='';
+  document.querySelectorAll('.vfbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');rv();
+}
+
+/* ══ MODAL ══ */
+let curM=null;
+function openModal(v){
+  curM=v;
+  document.getElementById('mHz').textContent=v.h;
+  document.getElementById('mPin').textContent=v.p;
+  document.getElementById('mMng').textContent=v.m;
+  document.getElementById('mCat').textContent='📁 '+v.c;
+  const s=SR[v.h];
+  document.getElementById('mSrsRow').innerHTML=s
+    ?`<span class="msrs-stat">ความง่าย: ${s.ease.toFixed(1)}</span><span class="msrs-stat">ทบทวนถัดไป: ${new Date(s.nextDue).toLocaleDateString('th-TH')}</span>`
+    :'<span class="msrs-stat">ยังไม่เคยทบทวน</span>';
+  document.getElementById('mEx').innerHTML=exHtml(v.ex);
+  const btn=document.getElementById('mLBtn');
+  btn.textContent=isL(v.h)?'✓ เรียนแล้ว':'+ ทำเครื่องหมายว่าเรียนแล้ว';
+  btn.style.cssText=`background:${isL(v.h)?'#6b7280':'var(--green)'};color:#fff`;
+  document.getElementById('modalOv').classList.add('on');
+  setTimeout(()=>speak(v.h,document.getElementById('mSpk')),300);
+}
+function closeMod(e){if(e.target.id==='modalOv')closeModD();}
+function closeModD(){document.getElementById('modalOv').classList.remove('on');}
+function speakM(){if(curM)speak(curM.h,document.getElementById('mSpk'));}
+function togLearn(){
+  if(!curM)return;
+  if(isL(curM.h)){delete LR[curM.h];sl();ud();}else mkLnd(curM.h);
+  openModal(curM);rv();buildHome();
+}
+
+/* ══ SRS ══ */
+let srsQ=[],srsI=0,srsFlipped=false;
+function renderSRS(){
+  const due=W.filter(w=>isDue(w.h));
+  const nw=W.filter(w=>!SR[w.h]);
+  const q=[...due,...nw].sort(()=>Math.random()-.5).slice(0,50);
+  if(!q.length){
+    document.getElementById('srsWrap').innerHTML=`<div style="text-align:center;padding:48px;background:var(--white);border:1.5px solid var(--border);border-radius:16px;box-shadow:var(--sh)"><div style="font-size:40px;margin-bottom:12px">🎉</div><div style="font-size:18px;font-weight:700;margin-bottom:8px">ไม่มีคำที่ต้องทบทวนตอนนี้!</div><div style="font-size:14px;color:var(--sub)">ดีมาก! กลับมาพรุ่งนี้นะ</div></div>`;
+    return;
+  }
+  srsQ=[...q].sort(()=>Math.random()-.5);srsI=0;srsFlipped=false;
+  showSRSCard();
+}
+function showSRSCard(){
+  const wrap=document.getElementById('srsWrap');
+  if(srsI>=srsQ.length){
+    wrap.innerHTML=`<div style="text-align:center;padding:40px"><div style="font-size:36px">✅</div><div style="font-size:18px;font-weight:700;margin:10px 0 6px">ทบทวนรอบนี้เสร็จแล้ว!</div><div style="font-size:14px;color:var(--sub);margin-bottom:20px">ทบทวน ${srsQ.length} คำ</div><button class="rbtn" onclick="renderSRS()">ทบทวนอีกรอบ</button></div>`;
+    return;
+  }
+  const v=srsQ[srsI];const s=SR[v.h];
+  wrap.innerHTML=`
+    <div class="fc-meta-row"><span>${srsI+1} / ${srsQ.length}</span><span id="srsHint" style="color:var(--sub)">แตะเพื่อดูความหมาย</span></div>
+    <div class="flashcard" id="srsCard" onclick="flipSRS()" style="cursor:pointer">
+      <div class="fc-inner" id="srsInn">
+        <div class="fc-f">
+          <div class="fhz">${v.h}</div>
+          <button class="fspk" onclick="event.stopPropagation();speak('${v.h.replace(/'/g,"\\'")}')">🔊</button>
+          <div class="fhint">กด 🔊 ฟัง · แตะดูความหมาย + พินอินประโยค</div>
+        </div>
+        <div class="fc-b">
+          <div class="fbs">${v.h}</div>
+          <div class="fbp">${v.p}</div>
+          <div class="fbm">${v.m}</div>
+          <div class="fbc">${v.c}</div>
+          <div class="fc-ex-wrap">${exHtmlCard(v.ex)}</div>
+        </div>
+      </div>
+    </div>
+    <div id="srsBtnsWrap" style="display:none">
+      <div style="font-size:11px;color:var(--muted);text-align:center;margin-bottom:7px">ประเมินความยากง่าย:</div>
+      <div class="srs-btns">
+        <button class="sb hard" onclick="rateSRS(1)">😰 ยาก<br><small style="font-size:10px">ทบทวนพรุ่งนี้</small></button>
+        <button class="sb ok" onclick="rateSRS(3)">😊 พอได้<br><small style="font-size:10px">ทบทวนใน ${s?Math.round(s.interval*1.5):6} วัน</small></button>
+        <button class="sb easy" onclick="rateSRS(5)">😄 ง่าย<br><small style="font-size:10px">ทบทวนใน ${s?Math.round(s.interval*2.5):13} วัน</small></button>
+      </div>
+    </div>`;
+  setTimeout(()=>speak(v.h),300);
+}
+function flipSRS(){
+  document.getElementById('srsCard')?.classList.toggle('flipped');
+  const b=document.getElementById('srsBtnsWrap');
+  if(b){b.style.display='';document.getElementById('srsHint').style.display='none';}
+}
+function rateSRS(q){if(srsQ[srsI])srsRate(srsQ[srsI].h,q);srsI++;showSRSCard();}
+
+/* ══ FLASHCARD ══ */
+let fcS=[],fcI=0;
+function initFC(){fcS=[...W].sort(()=>Math.random()-.5);fcI=0;showFC();}
+function showFC(){
+  if(fcI>=fcS.length){fcI=0;fcS=[...W].sort(()=>Math.random()-.5);}
+  const v=fcS[fcI];const due=fcS.filter(w=>isDue(w.h)&&SR[w.h]).length;
+  document.getElementById('fcHz').textContent=v.h;
+  document.getElementById('fcHzB').textContent=v.h;
+  document.getElementById('fcPin').textContent=v.p;
+  document.getElementById('fcMean').textContent=v.m;
+  document.getElementById('fcCat').textContent=v.c;
+  document.getElementById('fcEx').innerHTML=exHtmlCard(v.ex);
+  document.getElementById('fcMeta').textContent=`${fcI+1} / ${fcS.length}`;
+  document.getElementById('fcDue').textContent=due?`🟡 ต้องทบทวน ${due} คำ`:'';
+  document.getElementById('flashcard').classList.remove('flipped');
+  setTimeout(()=>speak(v.h),300);
+}
+function flipFC(){document.getElementById('flashcard').classList.toggle('flipped');}
+function speakFC(){if(fcS[fcI])speak(fcS[fcI].h);}
+function rateFC(q){if(fcS[fcI])srsRate(fcS[fcI].h,q);fcI++;showFC();}
+
+/* ══ QUIZ ══ */
+let qW=[],qI=0,qSc=0,qType='meaning'; // meaning | pinyin | hanzi
+function initQuiz(){qW=[...W].sort(()=>Math.random()-.5).slice(0,20);qI=0;qSc=0;renderQ();}
+function renderQ(){
+  const area=document.getElementById('quizArea');
+  if(qI>=qW.length){
+    const pct=Math.round(qSc/qW.length*100);
+    const stars=pct>=90?'🌟🌟🌟':pct>=70?'⭐⭐':'⭐';
+    const msg=pct>=80?'ยอดเยี่ยม! พร้อมสอบ HSK1 แล้ว 🏆':pct>=60?'ดีมาก ฝึกต่อไปเลย!':'ฝึกอีกนิดนะ 💪';
+    area.innerHTML=`<div class="result-card"><div class="res-score">${qSc}/${qW.length}</div><div class="res-grade">${stars}</div><div class="res-msg">${msg}</div><div class="res-sub">${pct}% ถูกต้อง</div><button class="rbtn" onclick="initQuiz()">ทดสอบอีกครั้ง</button><button class="rbtn sec" onclick="sm('srs')">ทบทวน SRS</button></div>`;
+    return;
+  }
+  const w=qW[qI];
+  const choices=[w];while(choices.length<4){const r=W[Math.floor(Math.random()*W.length)];if(!choices.find(c=>c.h===r.h))choices.push(r);}
+  choices.sort(()=>Math.random()-.5);
+  const sh=w.h.replace(/'/g,"\\'");
+  // Quiz type: meaning (default)
+  let qLabel='คำนี้แปลว่าอะไร?';
+  let qChoicesHtml=choices.map(c=>`<button class="qch" onclick="checkQ('${c.h.replace(/'/g,"\\'")}','${sh}',this)">${c.m}</button>`).join('');
+  area.innerHTML=`
+    <div class="qhdr"><span style="font-size:12px;color:var(--muted)">ข้อ ${qI+1}/${qW.length}</span><span class="qscore-txt">✓ ${qSc}</span></div>
+    <div class="qprog"><div class="qprogf" style="width:${qI/qW.length*100}%"></div></div>
+    <div class="qbox">
+      <div class="qlabel">${qLabel}</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+        <div class="qbig">${w.h}</div>
+        <button class="qspk" onclick="speak('${sh}',this)">🔊</button>
+      </div>
+    </div>
+    <div class="qchoices">${qChoicesHtml}</div>`;
+  setTimeout(()=>speak(w.h),280);
+}
+function checkQ(chosen,correct,btn){
+  document.querySelectorAll('.qch').forEach(b=>b.disabled=true);
+  const w=qW[qI];
+  if(chosen===correct){btn.classList.add('ok');qSc++;srsRate(correct,4);}
+  else{btn.classList.add('ng');document.querySelectorAll('.qch').forEach(b=>{if(b.textContent===w.m)b.classList.add('ok');});srsRate(correct,1);}
+  setTimeout(()=>{qI++;renderQ();},1200);
+}
+
+/* ══ MOCK EXAM ══ */
+let examState={},examTimer=null;
+function initExam(){
+  clearInterval(examTimer);
+  const words=[...W].sort(()=>Math.random()-.5);
+  // HSK 1: 20 listening + 20 reading = 40 min
+  const listenQ=words.slice(0,20).map(w=>{
+    const ch=[w];while(ch.length<4){const r=W[Math.floor(Math.random()*W.length)];if(!ch.find(c=>c.h===r.h))ch.push(r);}
+    ch.sort(()=>Math.random()-.5);return{w,choices:ch,sel:null,type:'listen'};
+  });
+  const readQ=words.slice(20,40).map(w=>{
+    const ch=[w];while(ch.length<4){const r=W[Math.floor(Math.random()*W.length)];if(!ch.find(c=>c.h===r.h))ch.push(r);}
+    ch.sort(()=>Math.random()-.5);return{w,choices:ch,sel:null,type:'read'};
+  });
+  examState={listenQ,readQ,submitted:false,startTime:Date.now(),totalSec:40*60};
+  renderExam(); startExamTimer(40*60);
+}
+function startExamTimer(sec){
+  clearInterval(examTimer);let r=sec;
+  function upd(){
+    const m=String(Math.floor(r/60)).padStart(2,'0'),s=String(r%60).padStart(2,'0');
+    const el=document.getElementById('examTimerDisp');
+    if(el){el.textContent=`${m}:${s}`;el.classList.toggle('warn',r<=300);}
+    if(r<=0){clearInterval(examTimer);submitExam();}r--;
+  }
+  upd();examTimer=setInterval(upd,1000);
+}
+function renderExam(){
+  const {listenQ,readQ,submitted}=examState;
+  const all=[...listenQ,...readQ];const ans=all.filter(q=>q.sel!==null).length;
+  let html=`<div class="exam-wrap">
+    <div class="exam-hdr">
+      <div><div class="exam-title">📝 Mock Exam — HSK 1</div><div class="exam-sub">${ans}/${all.length} ข้อที่ตอบแล้ว · ฟัง 20 + อ่าน 20 ข้อ</div></div>
+      <div class="exam-timer" id="examTimerDisp">40:00</div>
+    </div>`;
+  // LISTENING
+  html+=`<div class="exam-sec"><div class="exam-sec-title" style="background:#dbeafe;color:#1d4ed8">🎧 ส่วนที่ 1 — การฟัง (${listenQ.length} ข้อ)</div>`;
+  listenQ.forEach((q,i)=>{
+    const sh=q.w.h.replace(/'/g,"\\'");
+    html+=`<div class="exam-q">
+      <div class="eq-num">ข้อ ${i+1}</div>
+      <button class="eq-audio" onclick="speak('${sh}')">🔊 คลิกฟังเสียง</button>
+      <div style="font-size:12px;color:var(--sub);margin-bottom:7px">คำที่ได้ยินแปลว่าอะไร?</div>
+      <div class="exam-opts">${q.choices.map((c,ci)=>`<button class="exam-opt${q.sel===ci?(submitted?(q.choices[q.sel].h===q.w.h?' cor':' wro'):(q.sel===ci?' sel':'')):(submitted&&q.choices[ci].h===q.w.h?' cor':'')}" onclick="selOpt('listen',${i},${ci})" ${submitted?'disabled':''}>${String.fromCharCode(65+ci)}. ${c.m}</button>`).join('')}</div>
+    </div>`;
+  });
+  html+='</div>';
+  // READING
+  html+=`<div class="exam-sec"><div class="exam-sec-title" style="background:#dcfce7;color:#15803d">📖 ส่วนที่ 2 — การอ่าน (${readQ.length} ข้อ)</div>`;
+  readQ.forEach((q,i)=>{
+    html+=`<div class="exam-q">
+      <div class="eq-num">ข้อ ${listenQ.length+i+1}</div>
+      <div class="eq-ex-block">
+        <div class="eq-hz">${q.w.h}</div>
+        <div class="eq-ex-pin">${q.w.p}</div>
+      </div>
+      <div style="font-size:12px;color:var(--sub);margin-bottom:7px">คำนี้แปลว่าอะไร?</div>
+      <div class="exam-opts">${q.choices.map((c,ci)=>`<button class="exam-opt${q.sel===ci?(submitted?(q.choices[q.sel].h===q.w.h?' cor':' wro'):(q.sel===ci?' sel':'')):(submitted&&q.choices[ci].h===q.w.h?' cor':'')}" onclick="selOpt('read',${i},${ci})" ${submitted?'disabled':''}>${String.fromCharCode(65+ci)}. ${c.m}</button>`).join('')}</div>
+    </div>`;
+  });
+  html+='</div>';
+  if(!submitted){html+=`<button class="submit-exam" onclick="submitExam()">ส่งข้อสอบ</button>`;}
+  html+='</div>';
+  document.getElementById('examArea').innerHTML=html;
+  if(!submitted) startExamTimer(Math.max(1,examState.totalSec-Math.floor((Date.now()-examState.startTime)/1000)));
+}
+function selOpt(sec,qi,ci){
+  if(examState.submitted)return;
+  if(sec==='listen')examState.listenQ[qi].sel=ci;
+  else examState.readQ[qi].sel=ci;
+  renderExam();
+}
+function submitExam(){
+  clearInterval(examTimer);examState.submitted=true;
+  const{listenQ,readQ}=examState;
+  const all=[...listenQ,...readQ];
+  let correct=0;
+  all.forEach(q=>{
+    if(q.sel!==null&&q.choices[q.sel].h===q.w.h){correct++;srsRate(q.w.h,4);}
+    else if(q.sel!==null)srsRate(q.w.h,1);
+  });
+  const total=all.length,pct=Math.round(correct/total*100);
+  const passed=correct>=Math.ceil(total*0.4); // 120/300 → ~40%
+  const grade=pct>=90?'A':pct>=80?'B+':pct>=70?'B':pct>=60?'C+':'C';
+  const lc=listenQ.filter(q=>q.sel!==null&&q.choices[q.sel].h===q.w.h).length;
+  const rc=readQ.filter(q=>q.sel!==null&&q.choices[q.sel].h===q.w.h).length;
+  const reviewHtml=all.map(q=>{
+    const ok=q.sel!==null&&q.choices[q.sel].h===q.w.h;
+    const ua=q.sel!==null?q.choices[q.sel]:null;
+    return`<div class="review-item"><span style="font-size:15px">${ok?'✅':'❌'}</span><span class="ri-hz">${q.w.h}</span><span class="ri-pin">${q.w.p}</span><span class="ri-mng">${q.w.m}</span>${!ok&&ua?`<span class="ri-user">(ตอบ: ${ua.m})</span>`:''}</div>`;
+  }).join('');
+  const area=document.getElementById('examArea');
+  area.innerHTML=`<div class="exam-wrap">
+    <div class="result-card">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">ผลการสอบ Mock Exam HSK 1</div>
+      <div class="res-score">${correct}/${total}</div>
+      <div class="res-grade">${passed?'🎉 ผ่าน':'😓 ยังไม่ผ่าน'} · เกรด ${grade}</div>
+      <div class="res-msg">${pct}% ถูกต้อง${passed?' — พร้อมสอบจริง! 🏆':''}</div>
+      <div class="res-sub">คะแนนผ่าน HSK 1 = 120/300 · ${passed?'คุณผ่านแล้ว':'ฝึกอีกนิดแล้วลองใหม่'}</div>
+      <div class="res-bd">
+        <div class="rb-item"><div class="rb-n">${lc}/${listenQ.length}</div><div class="rb-l">🎧 การฟัง</div></div>
+        <div class="rb-item"><div class="rb-n">${rc}/${readQ.length}</div><div class="rb-l">📖 การอ่าน</div></div>
+        <div class="rb-item"><div class="rb-n">${pct}%</div><div class="rb-l">คะแนนรวม</div></div>
+      </div>
+      <button class="rbtn" onclick="initExam()">ทดสอบใหม่</button>
+      <button class="rbtn sec" onclick="sm('srs')">ทบทวน SRS</button>
+    </div>
+    <div class="review-list">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">📋 เฉลยทุกข้อ</div>
+      ${reviewHtml}
+    </div>
+  </div>`;
+  ud();buildHome();
+}
+
+/* ══ INIT ══ */
+buildHome();
+</script>
+</body>
+</html>
